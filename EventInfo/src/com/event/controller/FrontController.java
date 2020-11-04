@@ -25,5 +25,6 @@ public class FrontController extends HttpServlet {
 		System.out.println("actionDo() »£√‚");
 		
 		request.setCharacterEncoding("UTF-8");
-	}
+
+		//æ»≥Á
 }
