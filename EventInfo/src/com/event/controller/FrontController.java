@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public FrontController() {
+    	super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,6 +25,7 @@ public class FrontController extends HttpServlet {
 	}
 	
 	protected void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("====FrontController====");
 		System.out.println("actionDo() »£√‚");
 		
 		request.setCharacterEncoding("UTF-8");
@@ -39,10 +41,19 @@ public class FrontController extends HttpServlet {
 		System.out.println("uri: " + uri);
 		System.out.println("conPath: " + conPath);
 		System.out.println("com: " + com);
+		System.out.println("=======================");
 		
 		switch(com) {
-		case "/":
-			
+		case "/main.do":
+			viewPage = "main.jsp";
+			break;
+		case "/login.do":
+			viewPage = "login.jsp";
+			break;
+		case "/loginOk.do":
+			command = new LoginCommand();
+			command.excute(request, response);
+			viewPage = "loginOk.jsp";
 			break;
 		}
 		
