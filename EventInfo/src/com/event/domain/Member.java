@@ -43,4 +43,8 @@ public class Member {
 		return gender;
 	}
 	
+	@Override
+	public String toString() {
+		return "[È¸¿ø ]" + member_uid + "|" + id + "|" + pw + "|" + name + "|" + phoneNum + "|" + age + "|" + gender + "|";
+	}
 }

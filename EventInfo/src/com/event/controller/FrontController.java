@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -50,11 +51,31 @@ public class FrontController extends HttpServlet {
 		case "/login.do":
 			viewPage = "login.jsp";
 			break;
-		case "/loginOk.do":
+		case "/loginOk.do":	
 			command = new LoginCommand();
 			command.excute(request, response);
 			viewPage = "loginOk.jsp";
 			break;
+		case "/signUp.do":
+			viewPage = "signUp.jsp";
+			break;
+		case "/signUpOk.do":
+			command = new SignUpCommand();
+			command.excute(request, response);
+			viewPage = "signUpOk.jsp";
+			break;
+		case "/idDuplicated.do":
+			command = new IdDuplicatedCommand();
+			command.excute(request, response);
+			viewPage = "idDuplicated.jsp";
+			break;
+		case "/review.do":
+			viewPage = "review.jsp";
+			break;
+		case "/writeReview.do":
+			viewPage = "writeReview.jsp";
+			break;
+			
 		}
 		
 		// response 를 위해서 

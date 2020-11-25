@@ -2,17 +2,29 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
 <meta charset="UTF-8">
-<title>꽃담화</title>
+<link rel="stylesheet" href="front/css/login.css">
 <jsp:include page="fragment/header.jsp" flush="false"/>
-</head>
-<body>
-<form action="loginOk.do" method="post">
-	아이디 <input type="text" name="id"><br>
-	비밀번호 <input type="password" name="pw">
-	<input type="submit" value="로그인">
-</form>
-</body>
-<jsp:include page="fragment/footer.jsp" flush="false"/>
+
+    <section class="로그인">
+      <form class="" action="loginOk.do" method="post">
+        <ul>
+          <li><label for="name">ID</label><input type="text" name="id"></li>
+          <li><label for="name">PASSWARD</label><input type="password" name="pw"></li>
+        </ul>
+
+        <div class="login_btn">
+          <button type="submit">LOGIN</button>
+        </div>
+
+        <div class="caption">
+          <a href="signUp.do">회원가입</a>
+        </div>
+	
+      </form>
+	
+    </section>
+	
+ </body>
+ <jsp:include page="fragment/footer.jsp" flush="false"/>
 </html>

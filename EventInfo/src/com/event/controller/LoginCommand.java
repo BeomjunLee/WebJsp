@@ -1,30 +1,35 @@
 package com.event.controller;
 
 import java.sql.SQLException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.event.domain.Member;
-import com.event.repository.MemberRepository;
+import com.event.service.MemberService;
 
 public class LoginCommand implements Command{
 	
-	//MemberRepository memberRepository = MemberRepository.getInstance();
-	MemberRepository memberRepository = MemberRepository.getInstance();
+	MemberService memberService = MemberService.getInstance();
 	
 	@Override
 	public void excute(HttpServletRequest request, HttpServletResponse response) {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		
+			
+		int result = 0;
 		try {
-			Member member = memberRepository.findMember(id);
-			request.setAttribute("member", member);
-			System.out.println("Member 전달성공");
+			result = memberService.checkLogin(id, pw, request);
+			request.setAttribute("result", result);
+			System.out.println("[loginCheck]Result : " + result);
+//			
+//			if(result == 1) response.sendRedirect("loginOk.do");
+//			else response.sendRedirect("login.do");
+//			
 		} catch (SQLException e) {
-			System.out.println("Member 전달실패");
+			System.out.println("Result 전달실패");
 			e.printStackTrace();
-		}
+		} 
+//		catch (IOException e) {
+//			e.printStackTrace();
+//		}
 	}
+
 }

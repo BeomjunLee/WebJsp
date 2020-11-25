@@ -29,13 +29,13 @@ public class MemberRepository {
 		try {
 			Class.forName(DB.DRIVER);
 			System.out.println("MemberRepository생성, DB연결");
+			System.out.println("========================");
 		}catch(Exception e) {
 			System.out.println("DB연결 실패");
+			System.out.println("========================");
 			e.printStackTrace();
 		}
 	}
-	
-	
 	
 	public void close() throws SQLException{
 		if(rs != null) rs.close();
@@ -50,7 +50,7 @@ public class MemberRepository {
 				rs.getString("id"),
 				rs.getString("pw"),
 				rs.getString("name"),
-				rs.getString("phone_num"),
+				rs.getString("phoneNum"),
 				rs.getInt("age"),
 				rs.getString("gender")
 		);
@@ -58,15 +58,50 @@ public class MemberRepository {
 	}
 	
 	
-	//회원가입	
+	//insert
+	public int save(Member member) throws SQLException{
+		int result = 0;
+		try {
+			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+			pstmt = conn.prepareStatement("insert into member(member_uid, id, pw, name, phoneNum, age, gender) values(member_seq.nextval, ?, ?, ?, ?, ?, ?)");
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2,  member.getPw());
+			pstmt.setString(3, member.getName());
+			pstmt.setString(4, member.getPhoneNum());
+			pstmt.setInt(5, member.getAge());
+			pstmt.setString(6, member.getGender());
+			result = pstmt.executeUpdate();
+			System.out.println(member.toString()); //회원 로그
+		}finally {
+			close();
+		}
+		return result;
+	}
 	
-	//로그인
-	public Member findMember(String id) throws SQLException{
+	//select by id
+	public Member findById(String id) throws SQLException{
 		Member member = null;
 		try {
 			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
 			pstmt = conn.prepareStatement("select * from member where id = ?");
 			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				member = createMember(rs);
+			}
+		}finally {
+			close();
+		}
+		return member;
+	}
+	
+	//select by uid
+	public Member find(Long member_uid) throws SQLException{
+		Member member = null;
+		try {
+			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+			pstmt = conn.prepareStatement("select * from member where member_uid = ?");
+			pstmt.setLong(1, member_uid);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				member = createMember(rs);
