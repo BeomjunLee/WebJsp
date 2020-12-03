@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% String msg = request.getParameter("message"); %>
-<%=msg %>
+<% String id = request.getParameter("message"); %>
+
 </body>
 </html>
