@@ -63,7 +63,7 @@ public class MemberRepository {
 		int result = 0;
 		try {
 			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
-			pstmt = conn.prepareStatement("insert into member(member_uid, id, pw, name, phoneNum, age, gender) values(member_seq.nextval, ?, ?, ?, ?, ?, ?)");
+			pstmt = conn.prepareStatement("insert into member values(member_seq.nextval, ?, ?, ?, ?, ?, ?)");
 			pstmt.setString(1, member.getId());
 			pstmt.setString(2,  member.getPw());
 			pstmt.setString(3, member.getName());

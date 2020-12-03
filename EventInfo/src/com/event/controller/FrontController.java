@@ -65,8 +65,8 @@ public class FrontController extends HttpServlet {
 			viewPage = "signUpOk.jsp";
 			break;
 		case "/idDuplicated.do":
-			command = new IdDuplicatedCommand();
-			command.excute(request, response);
+//			command = new IdDuplicatedCommand();
+//			command.excute(request, response);
 			viewPage = "idDuplicated.jsp";
 			break;
 		case "/review.do":
@@ -84,5 +84,6 @@ public class FrontController extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 			dispatcher.forward(request, response);
 		}
+//		RequestDispatcher dispatcher = context.getRequestDispatcher("/hello");
 	}
 }
