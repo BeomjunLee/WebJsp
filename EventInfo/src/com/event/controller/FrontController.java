@@ -56,6 +56,11 @@ public class FrontController extends HttpServlet {
 			command.excute(request, response);
 			viewPage = "loginOk.jsp";
 			break;
+		case "/logout.do":
+			command = new LogoutCommand();
+			command.excute(request, response);
+			viewPage = "logout.jsp";
+			break;
 		case "/signUp.do":
 			viewPage = "signUp.jsp";
 			break;
@@ -65,8 +70,8 @@ public class FrontController extends HttpServlet {
 			viewPage = "signUpOk.jsp";
 			break;
 		case "/idDuplicated.do":
-//			command = new IdDuplicatedCommand();
-//			command.excute(request, response);
+			command = new IdDuplicatedCommand();
+			command.excute(request, response);
 			viewPage = "idDuplicated.jsp";
 			break;
 		case "/review.do":

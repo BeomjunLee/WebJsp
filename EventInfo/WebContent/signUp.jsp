@@ -17,6 +17,7 @@
           <li><label for="name">AGE</label><input type="text" name="age"></li>
           <li><label for="name">SEX</label><input type="text" name="gender"></li>
         </ul>
+          <input type="hidden" id="idCheck" value="">
         <div class="join">
           <button type="submit" >회원가입</button>
         </div>
@@ -24,12 +25,8 @@
     </section>
 
 </body>
-<script>
-	function idDuplicated(){
-		url = "idDuplicated.do?id=" + document.getElementById('id').value;
-		window.open(url, "ID중복체크",
-				"width=300, height=100, toolbar=no, location=no status=no, menubar=no, scrollbars=no, resizable=no, left=1000, top=300");
-	}
+<script src="front/js/signUp.js">
+
 </script>
 <jsp:include page="fragment/footer.jsp" flush="false"/>
 </html>

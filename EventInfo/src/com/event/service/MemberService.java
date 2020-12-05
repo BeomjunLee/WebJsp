@@ -47,16 +47,21 @@ public class MemberService {
 		return result;
 	}
 	
+	//로그아웃
+	public void logout(HttpServletRequest request) throws SQLException{
+		HttpSession session = request.getSession();
+		session.removeAttribute("session");
+		System.out.println("세션 제거");
+	}
+	
 	//아이디 중복체크
-	public void duplicated(String id) throws SQLException {
+	public int duplicated(String id) throws SQLException {
 		Member member = memberRepository.findById(id);
-		try {
 			if(member.getId().equals(id)) {
-				throw new IdDuplicatedException("아이디가 중복되었습니다.");
+				return 0; 	//중복
+			}else {
+				return 1;	//중복아닐시
 			}
-		}catch(IdDuplicatedException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	//회원가입
