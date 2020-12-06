@@ -111,4 +111,11 @@ public class MemberRepository {
 		}
 		return member;
 	}
+	
+	//update
+	public int update(Long member_uid) throws SQLException{
+		int result = 0;
+		
+		return result;
+	}
 }
