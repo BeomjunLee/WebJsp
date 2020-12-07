@@ -86,7 +86,7 @@ public class MemberRepository {
 			pstmt = conn.prepareStatement("select * from member where id = ?");
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
-			while(rs.next()) {
+			if(rs.next()) {
 				member = createMember(rs);
 			}
 		}finally {
@@ -103,7 +103,7 @@ public class MemberRepository {
 			pstmt = conn.prepareStatement("select * from member where member_uid = ?");
 			pstmt.setLong(1, member_uid);
 			rs = pstmt.executeQuery();
-			while(rs.next()) {
+			if(rs.next()) {
 				member = createMember(rs);
 			}
 		}finally {

@@ -1,3 +1,4 @@
+<%@page import="com.event.domain.Pagination"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="com.event.domain.Review"%>
@@ -10,9 +11,18 @@
  <link rel="stylesheet" href="front/css/review.css">
 <jsp:include page="fragment/header.jsp" flush="false"/>
 
-<%--  <%List<Review> reviews = new ArrayList<>();
-reviews = (List<Review>)request.getAttribute("reviews");
-%>  --%>
+<%	
+	List<Review> reviews = new ArrayList<>();
+	reviews = (List<Review>)request.getAttribute("reviews");
+	Pagination pagination = (Pagination)request.getAttribute("pagination");
+//세션 체크
+	String uid = "";
+	if(session.getAttribute("session")!= null){
+		uid = session.getAttribute("session").toString();
+	}else{
+		uid = (String)session.getAttribute("session");
+	}
+%> 
     <div class="container">
       <div class = "row">
       	<div class = "sub_container">
@@ -36,7 +46,7 @@ reviews = (List<Review>)request.getAttribute("reviews");
                </tr>
             </thead>
             <tbody>
-    <%-- 		 <%for(Review review : reviews) {%>
+     		 <%for(Review review : reviews) {%>
                <tr>
                   <td><%=review.getTitle() %></td>
                   <td><%=review.getWriter() %></td>
@@ -44,27 +54,38 @@ reviews = (List<Review>)request.getAttribute("reviews");
                   <td><%=review.getView_count() %></td>
                   <td><%=review.getRecommend() %></td>
                </tr>
-            <%} %> --%> 
-           	 <tr>
+            <%} %> 
+         <!--   	 <tr>
                   <td>안녕하세요 </td>
                   <td>이범준</td>
                   <td>2020-12-03</td>
                   <td>2</td>
                   <td>7</td>
-           	 </tr> 
+           	 </tr> --> 
             </tbody>
          </table>
 
-      <ul class="review_ul">
-         <li><a href="#">1</a></li>
-         <li><a href="#">2</a></li>
-         <li><a href="#">3</a></li>
-         <li><a href="#">4</a></li>
-         <li><a href="#">5</a></li>
-         <li><a href="#">6</a></li>
-      </ul>
-
+   <div align="center">
+        <%if(pagination.getTotalListCnt() != 0){
+           	if(pagination.getPage() != 1){%>
+                <a href="review.do?page=1">FIRST</a>
+                <a href="review.do?page=<%=pagination.getPreBlock()%>">&laquo;</a>
+       		<%}
+        }%>
+        <%for(int i=pagination.getStartPage(); i <= pagination.getEndPage(); i++) {%>
+        	<a href="review.do?page=<%=i%>"><%=i%></a>
+        <%} 
+        	if(pagination.getTotalListCnt() != 0){
+         	  if(pagination.getPage() != pagination.getTotalPageCnt()){%>
+                <a href="review.do?page=<%=pagination.getNextBlock()%>">&raquo;</a>
+                <a href="review.do?page=<%=pagination.getTotalPageCnt()%>">LAST</a>
+            <%}
+      	}%>
+    </div>
+    
+		<%if(uid != null){ %>
          <a href = "writeReview.do" class="write_review">글쓰기</a>
+        <%} %>
       </div>
    </div>
 

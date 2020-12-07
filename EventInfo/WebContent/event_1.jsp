@@ -1,80 +1,40 @@
+<%@page import="com.event.domain.Event"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.event.domain.Pagination"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
-<head>
-
-<meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="front/css/event.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
-
-    <script src="https://kit.fontawesome.com/eeec69e2c8.js" crossorigin="anonymous">
-    </script>
-    <script defer src="js/main.js">
-
-    </script>
-  </head>
-  <body>
-
-    <nav class="title">
-      <div class="navbar">
-        <a href="main.html" style="color:#CD1039; font-size:2em;">꽃담화</a>
-      </div>
-
-      <ul class="login">
-        <li><a href="#" style="color:black;">login</a></li>
-        <li><a href="#" class="ham"><i class="fas fa-bars" href=""></i></a></li>
-      </ul>
-    </nav>
-
-
-    <section class="menu">
-      <ul class="menu_men">
-        <li><a href="page1.html">남자이벤트</a></li>
-
-      </ul>
-
-      <ul class="menu_women">
-        <li><a href="#">여자 이벤트</a></li>
-
-      </ul>
-
-      <ul class="menu_parents">
-        <li><a href="#">부모님 이벤트</a></li>
-
-      </ul>
-
-      <ul class="menu_고객센터">
-        <li><a href="review.html">고객 센터</a></li>
-      </ul>
-    </section>
-
+<link rel="stylesheet" href="front/css/event.css">
+<jsp:include page="fragment/header.jsp" flush="false"/>    
+<%
+	List<Event> events = new ArrayList<>();
+	events = (List<Event>)request.getAttribute("events");
+	Pagination pagination = (Pagination)request.getAttribute("pagination");
+%>
       <section class ="content">
 
         <ul class="first_icon">
-          <li><i class="fas fa-gift">&nbsp;<input class="button" id="event1" type="button" value="event1" onclick="
+        <%if(pagination.getTotalListCnt() != 0){
+           	if(pagination.getPage() != 1){%>
+                <a href="event_1.do?page=<%=pagination.getPreBlock()%>">이전으로</a>
+       		<%}
+        }
+        for(Event event : events) {%>
+          <li><i class="fas fa-gift">&nbsp;<input class="button" id="event1" type="button" value="<%=event.getTitle() %>" onclick="
               if(document.querySelector('#event1').value === 'event1'){
                   document.querySelector('#event_1').style.display='block';
                   document.querySelector('#event_2').style.display='none';
                   document.querySelector('#event_3').style.display='none';
-              }
-            "></i></li>
-          <li><i class="fas fa-gift">&nbsp;<input class="button" id="event2" type="button" value="event2" onclick="
-            if(document.querySelector('#event2').value === 'event2'){
-                  document.querySelector('#event_2').style.display='block';
-                document.querySelector('#event_1').style.display='none';
-                document.querySelector('#event_3').style.display='none';
-            }
-            "></i></li>
-          <li><i class="fas fa-gift">&nbsp;<input class="button" id="event3" type="button" value="event3" onclick="
-            if(document.querySelector('#event3').value === 'event3'){
-                document.querySelector('#event_3').style.display='block';
-                document.querySelector('#event_1').style.display='none';
-                document.querySelector('#event_2').style.display='none';
-            }
-            "></i></li>
+              }"></i></li>
+        <%} 
+        	if(pagination.getTotalListCnt() != 0){
+         	  if(pagination.getPage() != pagination.getTotalPageCnt()){%>
+                <a href="event_1.do?page=<%=pagination.getNextBlock()%>">다음으로</a>
+            <%}
+      	}%>    
+
         </ul>
       </section>
 
@@ -108,17 +68,7 @@
           </div>
         </div>
       </div>
-</div>
-      <footer align="left">
-        <pre>
-
-          <span><i class="far fa-address-book"></i> 010-2910-4488</span>
-
-          <span><i class="far fa-clock"></i> 10:00~18:00</span>
-
-          <span><i class="fas fa-road"></i> 배방읍 아산캠퍼스 호서대학교</span>
-        </pre>
-      </footer>
-
+</div> 
   </body>
+<jsp:include page="fragment/footer.jsp" flush="false"/>
 </html>

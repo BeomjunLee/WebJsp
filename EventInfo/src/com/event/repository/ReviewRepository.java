@@ -102,11 +102,13 @@ public class ReviewRepository {
 	}
 	
 	//select all
-	public List<Review> findAll() throws SQLException{
+	public List<Review> findAll(int startIndex, int pageSize) throws SQLException{
 		List<Review> reviews = new ArrayList<>();
 		try {
 			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
-			pstmt = conn.prepareStatement("select * from review order by review_uid desc");
+			pstmt = conn.prepareStatement("select * from review order by review_uid desc OFFSET ? ROWS FETCH FIRST ? ROWS ONLY");
+			pstmt.setInt(1, startIndex);
+			pstmt.setInt(2, pageSize);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				reviews.add(createReview(rs));
@@ -120,4 +122,20 @@ public class ReviewRepository {
 	//update
 	
 	//delete
+	
+	//select totalListCount
+	public int totalListCount() throws SQLException{
+		int result = 0;
+		try {
+			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+			pstmt = conn.prepareStatement("select count(*) from review");
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+		}finally {
+			close();
+		}
+		return result;
+	}
 }

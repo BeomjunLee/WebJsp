@@ -90,6 +90,11 @@ public class FrontController extends HttpServlet {
 		case "/myPage.do":
 			viewPage = "myPage.jsp";
 			break;
+		case "/event_1.do":
+			command = new Event_1Command();
+			command.excute(request, response);
+			viewPage = "event_1.jsp";
+			break;
 			
 		}
 		

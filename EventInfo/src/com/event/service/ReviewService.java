@@ -42,12 +42,21 @@ public class ReviewService {
 	//조회수
 	
 	//전체 검색
-	public List<Review> findAll() {
+	public List<Review> findAll(int startIndex, int pageSize) {
 		try {
-			return reviewRepository.findAll();
+			return reviewRepository.findAll(startIndex, pageSize);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
+		}
+	}
+	//전체 글 수
+	public int totalListCount() {
+		try {
+			return reviewRepository.totalListCount();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
 		}
 	}
 }	
