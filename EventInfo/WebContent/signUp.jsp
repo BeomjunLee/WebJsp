@@ -33,6 +33,33 @@
 
 
 
+function checkAll() { // 회원가입 누르면 모든 유효성 체크.
+    if (!checkUserId(form.userId.value)) {
+        return false;
+        
+    } else if (!checkPassword(form.pw1.value, form.pw.value)) {
+        return false;
+        
+    }  else if (!checkName(form.name.value)) {
+        return false;
+        
+    } else if (!checkBirth(form.identi1.value, form.identi2.value)) {
+        return false;
+        
+    } else if (!checkFavorite()) {
+        return false;
+        
+    } else if (!checkIntro()) {
+        return false;
+        
+    }
+    return true;
+}
+
+
+
+
+
 
 
 
@@ -141,9 +168,13 @@ function checkExistData(value, dataName) {//공백체크
 		}
 		
 		//****************  번호   *****************************//
+
+		//****************  번호   *****************************//
+
 	function checkTel(){
 		
 		var tel = form.phoneNum.value;
+
 		
 		if(tel.length==11){
 			return true;
@@ -164,6 +195,8 @@ function checkExistData(value, dataName) {//공백체크
 		}else{
 			alert('옳바르지 않는 나이입니다.');
 			return false;
+		if(tel.length != 11 && tel.length == 11){
+		return true;
 		}
 	}
 	
@@ -178,6 +211,7 @@ function checkExistData(value, dataName) {//공백체크
 		}else
 			return true;
 	}
+}
 </script>
 <jsp:include page="fragment/footer.jsp" flush="false"/>
 </html>
