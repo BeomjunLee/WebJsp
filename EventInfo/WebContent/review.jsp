@@ -10,9 +10,9 @@
  <link rel="stylesheet" href="front/css/review.css">
 <jsp:include page="fragment/header.jsp" flush="false"/>
 
-<%-- <%List<Review> reviews = new ArrayList<>();
+<%--  <%List<Review> reviews = new ArrayList<>();
 reviews = (List<Review>)request.getAttribute("reviews");
-%> --%>
+%>  --%>
     <div class="container">
       <div class = "row">
       	<div class = "sub_container">
@@ -36,7 +36,7 @@ reviews = (List<Review>)request.getAttribute("reviews");
                </tr>
             </thead>
             <tbody>
-    		<%--  <%for(Review review : reviews) {%>
+    <%-- 		 <%for(Review review : reviews) {%>
                <tr>
                   <td><%=review.getTitle() %></td>
                   <td><%=review.getWriter() %></td>
@@ -44,14 +44,14 @@ reviews = (List<Review>)request.getAttribute("reviews");
                   <td><%=review.getView_count() %></td>
                   <td><%=review.getRecommend() %></td>
                </tr>
-            <%} %> --%>
-             <tr>
-                  <td>안녕하세요 %></td>
+            <%} %> --%> 
+           	 <tr>
+                  <td>안녕하세요 </td>
                   <td>이범준</td>
                   <td>2020-12-03</td>
                   <td>2</td>
                   <td>7</td>
-               </tr>
+           	 </tr> 
             </tbody>
          </table>
 

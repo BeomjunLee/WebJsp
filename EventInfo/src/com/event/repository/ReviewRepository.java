@@ -106,7 +106,7 @@ public class ReviewRepository {
 		List<Review> reviews = new ArrayList<>();
 		try {
 			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
-			pstmt = conn.prepareStatement("select * from review");
+			pstmt = conn.prepareStatement("select * from review order by review_uid desc");
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				reviews.add(createReview(rs));
