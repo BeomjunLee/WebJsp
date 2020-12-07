@@ -7,18 +7,19 @@
 <jsp:include page="fragment/header.jsp" flush="false"/>
 
     <section class="로그인">
-      <form class="" action="loginOk.do" method="post">
+      <form class="login_all" action="loginOk.do" method="post">
         <ul>
-          <li><label for="name">ID</label><input type="text" name="id"></li>
-          <li><label for="name">PASSWARD</label><input type="password" name="pw"></li>
+          <p class = "sign_title">로그인하기</p>
+          <li><label class ="color" for="name">아이디</label><input class="sign_box"type="text" name="id"></li>
+          <li><label class ="color" for="name">비밀번호</label><input class="sign_box" type="password" name="pw"></li>
         </ul>
 
         <div class="login_btn">
-          <button type="submit">LOGIN</button>
+          <button type="submit">로그인</button>
         </div>
 
         <div class="caption">
-          <a href="signUp.do">회원가입</a>
+          <a class = "signup" href="signUp.do">회원가입</a>
         </div>
 	
       </form>

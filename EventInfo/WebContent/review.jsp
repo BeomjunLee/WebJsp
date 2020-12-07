@@ -9,7 +9,9 @@
 
     <div class="container">
       <div class = "row">
-      <h3>리뷰 게시판</h3>
+      	<div class = "sub_container">
+      		<span class = "main_title">리뷰 게시판</span>
+      	</div>
       <select class="review_select" name="rivew_sel">
         <option value="Men">Men</option>
         <option value="Women">Women</option>
@@ -26,10 +28,10 @@
          <table class="table-striped">
             <thead>
                <tr>
-                  <th style="background-color: #eeeeee; text-align: center;">종류</th>
-                  <th style="background-color: #eeeeee; text-align: center;">제목</th>
-                  <th style="background-color: #eeeeee; text-align: center;">작성자</th>
-                  <th style="background-color: #eeeeee; text-align: center;">작성일</th>
+                  <th class = "table_color" >종류</th>
+                  <th class = "table_color" >제목</th>
+                  <th class = "table_color" >작성자</th>
+                  <th class = "table_color" >작성일</th>
                </tr>
             </thead>
             <tbody>

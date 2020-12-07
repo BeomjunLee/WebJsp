@@ -19,7 +19,7 @@
 
     <nav class = "title">
       <div class="navbar">
-        <a href="main.do" style="color:grey; font-size:2em;">눈담화</a>
+        <a href="main.do" class = "main_title">눈담화</a>
       </div>
 
 <%
