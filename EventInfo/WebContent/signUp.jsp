@@ -54,13 +54,6 @@ function checkAll() { // 회원가입 누르면 모든 유효성 체크.
     return true;
 }
 
-
-
-
-
-
-
-
 //아이디 중복체크 버튼클릭시
 function idDuplicated(){
 	
