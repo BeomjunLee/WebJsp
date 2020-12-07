@@ -87,6 +87,9 @@ public class FrontController extends HttpServlet {
 			command.excute(request, response);
 			viewPage = "writeReviewOk.jsp";
 			break;
+		case "/myPage.do":
+			viewPage = "myPage.jsp";
+			break;
 			
 		}
 		

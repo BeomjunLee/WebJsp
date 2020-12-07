@@ -16,7 +16,9 @@
           <li><label class="color" for="name">이름</label><input class="sign_box" type="text" name="name"></li>
           <li><label class="color" for="name">전화번호</label><input class="sign_box" type="text" name="phoneNum"></li>
           <li><label class="color" for="name">나이</label><input class="sign_box" type="text" name="age"></li>
-          <li><label class="color" for="name">성별</label><input class="sign_box" style="margin-bottom:20px;" type="text" name="gender"></li>
+          <li><label class="color" for="name">성별</label>
+          <input class="sign_box" style="margin-bottom:20px;" type="radio" name="gender" value="male">남성
+          <input class="sign_box" style="margin-bottom:20px;" type="radio" name="gender" value="female">여성</li>
         </ul>
         
           <input type="hidden" id="idCheck" value="">
