@@ -12,7 +12,7 @@ public class ReadReviewCommand implements Command{
 	
 	@Override
 	public void excute(HttpServletRequest request, HttpServletResponse response) {
-		//¸®ºä uid¹Þ±â
+		//¸®ºä uid ¹Þ±â
 		Long review_uid = Long.parseLong(String.valueOf(request.getParameter("uid")));
 		
 		Review review = reviewService.findByUid(review_uid);

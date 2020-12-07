@@ -24,6 +24,7 @@ public class MemberService {
 	protected MemberService() {} //new로 객체생성 막기
 	
 //	//회원select
+	
 //	public Member findMember() {
 //		Member member = new Member();
 //		

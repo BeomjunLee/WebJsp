@@ -2,7 +2,7 @@ package com.event.domain;
 
 
 public class Pagination {
-	// 페이지 당 보여지는 게시글의 최대 개수
+	// 페이지당 보여지는 게시글의 최대 개수
     private int pageSize = 0;
     //페이징된 버튼의 블럭당 최대 개수
     private int blockSize = 5;

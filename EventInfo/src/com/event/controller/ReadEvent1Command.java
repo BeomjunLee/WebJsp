@@ -15,7 +15,7 @@ public class ReadEvent1Command implements Command{
 	
 	@Override
 	public void excute(HttpServletRequest request, HttpServletResponse response) {
-		//이벤트 uid받기
+		//이벤트 uid 받기
 		Long event_uid = Long.parseLong(String.valueOf(request.getParameter("uid")));
 		
 		//uid값 이벤트 찾기

@@ -7,7 +7,7 @@
 <title>눈담화</title>
 <jsp:include page="fragment/header.jsp" flush="false"/>
 	
-	<h2>회원 정보</h2> <br>
+	<h2>회원 정보</h2>    <br>
 	
 	아이디 : dwddd<br>
 	이름 : 이범준 <br>
