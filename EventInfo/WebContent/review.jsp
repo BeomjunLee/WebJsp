@@ -15,7 +15,9 @@ reviews = (List<Review>)request.getAttribute("reviews");
 %> --%>
     <div class="container">
       <div class = "row">
-      <h3>리뷰 게시판</h3>
+      	<div class = "sub_container">
+      		<span class = "main_title">리뷰 게시판</span>
+      	</div>
       <select class="review_select" name="rivew_sel">
         <option value="all">모두보기</option>
         <option value="men">남자친구를 위한</option>
@@ -26,11 +28,11 @@ reviews = (List<Review>)request.getAttribute("reviews");
          <table class="table-striped">
             <thead>
                <tr>
-                  <th style="background-color: #eeeeee; text-align: center;">제목</th>
-                  <th style="background-color: #eeeeee; text-align: center;">작성자</th>
-                  <th style="background-color: #eeeeee; text-align: center;">작성일</th>
-                  <th style="background-color: #eeeeee; text-align: center;">조회수</th>
-                  <th style="background-color: #eeeeee; text-align: center;">추천수</th>
+                  <th class = "table_color" >제목</th>
+                  <th class = "table_color" >작성자</th>
+                  <th class = "table_color" >작성일</th>
+                  <th class = "table_color" >조회수</th>
+                  <th class = "table_color" >추천수</th>
                </tr>
             </thead>
             <tbody>
