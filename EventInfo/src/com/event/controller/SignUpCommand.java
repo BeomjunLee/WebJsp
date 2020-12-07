@@ -1,6 +1,5 @@
 package com.event.controller;
 
-import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,11 +26,7 @@ public class SignUpCommand implements Command{
 		
 		Member member = new Member(member_uid, id, pw, name, phoneNum, age, gender);
 		
-		try {
-			int result = memberService.signUp(member);
-			request.setAttribute("result", result);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		int result = memberService.signUp(member);
+		request.setAttribute("result", result);
 	}
 }

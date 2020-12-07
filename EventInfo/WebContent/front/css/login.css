@@ -2,7 +2,12 @@
 *{
   margin:0; padding:0; box-sizing: border-box;
 }
-
+@font-face {
+     font-family: 'NIXGONM-Vb';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
 @font-face {
     font-family: 'ImcreSoojin';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/ImcreSoojin.woff') format('woff');
@@ -172,6 +177,7 @@ footer>pre{
   color: black;
   margin: 10px;
   font-size: 1.3em;
+
 }
 
 .menu{
@@ -204,7 +210,7 @@ footer>pre{
   height: 100vh;
   background: url("°·¼º4.jpg") no-repeat center;
   background-size: cover;
-
+  background-color: transparent;
 }
 
 ul{
@@ -215,23 +221,41 @@ ul{
 li input{
   width:100%;
   padding:5px 5px 5px;
-
   border:none;
   border-bottom:1px solid #999;
   font-size:18px;
 }
-
+.login_all{
+	padding:20px;
+	border:0.5px solid #dcdcdc;
+}
+.sign_title{
+	font-size:1.5em;
+	color:grey;	
+	margin-bottom:10px;
+	text-align:center;
+	font-family: 'NIXGONM-Vb';
+	
+}
+.sign_box{
+	background-color:white;
+	border:0.5px solid #dcdcdc;
+}
 .login_btn{
   margin-top: 50px;
 }
+.color{
+	color:#282828;
+}
 
 button{
+  font-family: 'GmarketSansMedium';	
+  background-color:#ff7276;
   width:100%;
-  height:30px;
-  border:none;
-  border-radius: 20px;
-  background:#FFE3EE;
-
+  height: 30px;
+  border:0.5px solid #dcdcdc;
+  font-size:1em;
+  color:white;
 }
 
 .caption {

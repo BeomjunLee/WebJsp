@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="com.event.domain.Review"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,38 +10,48 @@
  <link rel="stylesheet" href="front/css/review.css">
 <jsp:include page="fragment/header.jsp" flush="false"/>
 
+<%--  <%List<Review> reviews = new ArrayList<>();
+reviews = (List<Review>)request.getAttribute("reviews");
+%>  --%>
     <div class="container">
       <div class = "row">
-      <h3>리뷰 게시판</h3>
+      	<div class = "sub_container">
+      		<span class = "main_title">리뷰 게시판</span>
+      	</div>
       <select class="review_select" name="rivew_sel">
-        <option value="Men">Men</option>
-        <option value="Women">Women</option>
-        <option value="Parents">Parents</option>
-        <option value="All">All</option>
+        <option value="all">모두보기</option>
+        <option value="men">남자친구를 위한</option>
+        <option value="women">여자친구를 위한</option>
+        <option value="parents">부모님을 위한</option>
       </select>
-
-      <script type="text/javascript">
-        if(review_select.equals('Men')){
-          document.write("Hello");
-        }
-
-      </script>
+	 
          <table class="table-striped">
             <thead>
                <tr>
-                  <th style="background-color: #eeeeee; text-align: center;">종류</th>
-                  <th style="background-color: #eeeeee; text-align: center;">제목</th>
-                  <th style="background-color: #eeeeee; text-align: center;">작성자</th>
-                  <th style="background-color: #eeeeee; text-align: center;">작성일</th>
+                  <th class = "table_color" >제목</th>
+                  <th class = "table_color" >작성자</th>
+                  <th class = "table_color" >작성일</th>
+                  <th class = "table_color" >조회수</th>
+                  <th class = "table_color" >추천수</th>
                </tr>
             </thead>
             <tbody>
+    <%-- 		 <%for(Review review : reviews) {%>
                <tr>
-                  <td>1</td>
-                  <td>안녕하세요</td>
-                  <td>홍길동</td>
-                  <td>2017-05-04</td>
+                  <td><%=review.getTitle() %></td>
+                  <td><%=review.getWriter() %></td>
+                  <td><%=review.getRegdate() %></td>
+                  <td><%=review.getView_count() %></td>
+                  <td><%=review.getRecommend() %></td>
                </tr>
+            <%} %> --%> 
+           	 <tr>
+                  <td>안녕하세요 </td>
+                  <td>이범준</td>
+                  <td>2020-12-03</td>
+                  <td>2</td>
+                  <td>7</td>
+           	 </tr> 
             </tbody>
          </table>
 
@@ -47,6 +60,8 @@
          <li><a href="#">2</a></li>
          <li><a href="#">3</a></li>
          <li><a href="#">4</a></li>
+         <li><a href="#">5</a></li>
+         <li><a href="#">6</a></li>
       </ul>
 
          <a href = "writeReview.do" class="write_review">글쓰기</a>

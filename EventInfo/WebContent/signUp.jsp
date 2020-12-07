@@ -7,16 +7,20 @@
 <jsp:include page="fragment/header.jsp" flush="false"/>
 <body>
     <section class="회원가입">
-      <form class="" action="signUpOk.do" method="post">
+      <form class="sign_all" action="signUpOk.do" method="post">
         <ul>
-          <li><label for="name">ID</label><input type="text" name="id" id="id"><input type="button" onclick="return idDuplicated();" value="중복체크"></li>
-          <li><label for="name">PASSWARD</label><input type="password" name="pw1"></li>
-          <li><label for="name">PASSWARD 확인</label><input type="password" name="pw"></li>
-          <li><label for="name">NAME</label><input type="text" name="name"></li>
-          <li><label for="name">TEL</label><input type="text" name="phoneNum"></li>
-          <li><label for="name">AGE</label><input type="text" name="age"></li>
-          <li><label for="name">SEX</label><input type="text" name="gender"></li>
+          <p class = "sign_title">회원가입</p>
+          <li><label class="color" for="name">아이디</label><div class="ID"><input class="sign_box" type="text" name="id" id="id"><input class ="check" type="button" onclick="return idDuplicated();" value="중복체크"></li></div>
+          <li><label class="color" for="name">비밀번호</label><input class="sign_box" type="password" name="pw1"></li>
+          <li><label class="color" for="name">비밀번호 확인</label><input class="sign_box" type="password" name="pw"></li>
+          <li><label class="color" for="name">이름</label><input class="sign_box" type="text" name="name"></li>
+          <li><label class="color" for="name">전화번호</label><input class="sign_box" type="text" name="phoneNum"></li>
+          <li><label class="color" for="name">나이</label><input class="sign_box" type="text" name="age"></li>
+          <li><label class="color" for="name">성별</label>
+          <input class="sign_box" style="margin-bottom:20px;" type="radio" name="gender" value="male">남성
+          <input class="sign_box" style="margin-bottom:20px;" type="radio" name="gender" value="female">여성</li>
         </ul>
+        
           <input type="hidden" id="idCheck" value="">
         <div class="join">
           <button type="submit" >회원가입</button>

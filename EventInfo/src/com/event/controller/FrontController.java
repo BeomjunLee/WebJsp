@@ -75,10 +75,20 @@ public class FrontController extends HttpServlet {
 			viewPage = "idDuplicated.jsp";
 			break;
 		case "/review.do":
+			command = new ReviewCommand();
+			command.excute(request, response);
 			viewPage = "review.jsp";
 			break;
 		case "/writeReview.do":
 			viewPage = "writeReview.jsp";
+			break;
+		case "/writeReviewOk.do":
+			command = new WriteReviewCommand();
+			command.excute(request, response);
+			viewPage = "writeReviewOk.jsp";
+			break;
+		case "/myPage.do":
+			viewPage = "myPage.jsp";
 			break;
 			
 		}
