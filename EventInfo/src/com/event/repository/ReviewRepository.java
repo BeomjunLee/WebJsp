@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.event.domain.Review;
 
@@ -46,12 +48,15 @@ public class ReviewRepository {
 	public Review createReview(ResultSet rs) throws SQLException{
 		Review review = new Review(
 				rs.getLong("review_uid"),
-				rs.getLong("event_uid"),
 				rs.getLong("member_uid"),
+				rs.getString("writer"),
+				rs.getString("category"),
 				rs.getString("title"),
 				rs.getString("content"),
-				rs.getString("file"),
-				rs.getInt("view_count")
+				rs.getString("img"),
+				rs.getInt("view_count"),
+				rs.getInt("recommend"),
+				rs.getString("regdate")
 		);
 		return review;
 	}
@@ -62,13 +67,16 @@ public class ReviewRepository {
 		int result = 0;
 		try {
 			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
-			pstmt = conn.prepareStatement("insert into review values(review_seq.nextval, ?, ?, ?, ?, ?, ?)");
-			pstmt.setLong(1, review.getEvent_uid());
-			pstmt.setLong(2,  review.getMember_uid());
-			pstmt.setString(3, review.getTitle());
-			pstmt.setString(4, review.getContent());
-			pstmt.setString(5, review.getFile());
-			pstmt.setInt(6, review.getView_count());
+			pstmt = conn.prepareStatement("insert into review values(review_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			pstmt.setLong(1,  review.getMember_uid());
+			pstmt.setString(2, review.getWriter());
+			pstmt.setString(3, review.getCategory());
+			pstmt.setString(4, review.getTitle());
+			pstmt.setString(5, review.getContent());
+			pstmt.setString(6, review.getImg());
+			pstmt.setInt(7, review.getView_count());
+			pstmt.setInt(8, review.getRecommend());
+			pstmt.setString(9, review.getRegdate());
 			result = pstmt.executeUpdate();
 			System.out.println(review.toString()); //¸®ºä ·Î±×
 		}finally {
@@ -78,36 +86,35 @@ public class ReviewRepository {
 	}
 	
 	//select by category
-	public Review findByCategory(String category) throws SQLException{
-		Review review = null;
+	public List<Review> findByCategory(String category) throws SQLException{
+		List<Review> reviews = new ArrayList<>();
 		try {
 			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
-			pstmt = conn.prepareStatement("select r.review_uid, r.event_uid, r.member_uid, r.title, r.content, r.file, r.view_count from review r event e where r.event_uid = e.event_uid and e.category = ?");
-			pstmt.setString(1, category);
+			pstmt = conn.prepareStatement("select * from review where category = ?");
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				review = createReview(rs);
+				reviews.add(createReview(rs));
 			}
 		}finally {
 			close();
 		}
-		return review;
+		return reviews;
 	}
 	
 	//select all
-	public Review findByCategory() throws SQLException{
-		Review review = null;
+	public List<Review> findAll() throws SQLException{
+		List<Review> reviews = new ArrayList<>();
 		try {
 			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
 			pstmt = conn.prepareStatement("select * from review");
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				review = createReview(rs);
+				reviews.add(createReview(rs));
 			}
 		}finally {
 			close();
 		}
-		return review;
+		return reviews;
 	}
 	
 	//update

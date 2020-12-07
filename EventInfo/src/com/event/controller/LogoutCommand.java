@@ -1,6 +1,5 @@
 package com.event.controller;
 
-import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,11 +11,7 @@ public class LogoutCommand implements Command{
 	MemberService memberService = MemberService.getInstance();
 	@Override
 	public void excute(HttpServletRequest request, HttpServletResponse response) {
-		try {
-			memberService.logout(request);
-			System.out.println("로그아웃 성공");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		memberService.logout(request);
+		System.out.println("로그아웃 성공");
 	}
 }

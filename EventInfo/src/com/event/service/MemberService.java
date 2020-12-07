@@ -48,7 +48,7 @@ public class MemberService {
 	}
 	
 	//로그아웃
-	public void logout(HttpServletRequest request) throws SQLException{
+	public void logout(HttpServletRequest request){
 		HttpSession session = request.getSession();
 		session.removeAttribute("session");
 		System.out.println("세션 제거");
@@ -57,18 +57,33 @@ public class MemberService {
 	//아이디 중복체크
 	public int duplicated(String id) throws SQLException {
 		Member member = memberRepository.findById(id);
-			if(member.getId().equals(id)) {
-				return 0; 	//중복
+			if(member == null){
+				return 1; 	//중복이 아님
+			}else if(member.getId().equals(id)){
+				return 0;	//중복
 			}else {
-				return 1;	//중복아닐시
+				return 2;
 			}
 	}
 	
 	//회원가입
-	public int signUp(Member member) throws SQLException{
+	public int signUp(Member member){
 		int result = 0;
-		result = memberRepository.save(member);
+		try {
+			result = memberRepository.save(member);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return result;
 	}
 	
+	//회원정보
+	public Member findMember(Long member_uid) {
+		try {
+			return memberRepository.find(member_uid);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

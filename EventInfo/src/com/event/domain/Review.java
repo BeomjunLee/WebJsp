@@ -1,33 +1,40 @@
 package com.event.domain;
 
+
 public class Review {
 	 private Long review_uid;
-	 private Long event_uid;
 	 private Long member_uid;
+	 private String writer;
+	 private String category;
 	 private String title;
 	 private String content;
-	 private String file;
+	 private String img;
 	 private int view_count;
+	 private int recommend;
+	 private String regdate;
 	 
 	 protected Review() {} //그냥 생성불가
 
-	public Review(Long review_uid, Long event_uid, Long member_uid, String title, String content, String file,
-			int view_count) {
+	public Review(Long review_uid, Long member_uid, String writer, String category, String title, String content, String img,
+			int view_count, int recommend, String regdate) {
 		this.review_uid = review_uid;
-		this.event_uid = event_uid;
 		this.member_uid = member_uid;
+		this.writer = writer;
+		this.category = category;
 		this.title = title;
 		this.content = content;
-		this.file = file;
+		this.img = img;
 		this.view_count = view_count;
+		this.recommend = recommend;
+		this.regdate = regdate;
 	}
 
 	public Long getReview_uid() {
 		return review_uid;
 	}
 
-	public Long getEvent_uid() {
-		return event_uid;
+	public String getCategory() {
+		return category;
 	}
 
 	public Long getMember_uid() {
@@ -42,16 +49,28 @@ public class Review {
 		return content;
 	}
 
-	public String getFile() {
-		return file;
+	public String getImg() {
+		return img;
 	}
 
 	public int getView_count() {
 		return view_count;
 	}
 	
+	public int getRecommend() {
+		return recommend;
+	}
+
+	public String getRegdate() {
+		return regdate;
+	}	
+	
+	public String getWriter() {
+		return writer;
+	}
+
 	@Override
 	public String toString() {
-		return "[리뷰글 ]" + review_uid + "|" + event_uid + "|" + member_uid + "|" + title + "|" + content + "|" + file + "|" + view_count + "|";
+		return "[리뷰글 ]" + review_uid + "|" + "|" + member_uid + "|" + writer+ "|" + category + "|" + title + "|" + content + "|" + img + "|" + view_count + "|" + recommend + "|" + regdate;
 	}
 }
