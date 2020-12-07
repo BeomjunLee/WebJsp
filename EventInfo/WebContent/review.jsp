@@ -65,7 +65,7 @@
             </tbody>
          </table>
 
-   <div align="center" >
+   <div align="center">
         <%if(pagination.getTotalListCnt() != 0){
            	if(pagination.getPage() != 1){%>
                 <a href="review.do?page=1">처음으로</a>
