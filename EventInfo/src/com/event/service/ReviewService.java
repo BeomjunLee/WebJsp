@@ -41,6 +41,16 @@ public class ReviewService {
 	
 	//조회수
 	
+	//리뷰 보기
+	public Review findByUid(Long review_uid) {
+		try {
+			return reviewRepository.findByUid(review_uid);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	//전체 검색
 	public List<Review> findAll(int startIndex, int endIndex) {
 		try {

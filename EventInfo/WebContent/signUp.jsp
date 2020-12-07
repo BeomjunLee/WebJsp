@@ -135,13 +135,9 @@ function checkExistData(value, dataName) {//공백체크
 			}
 		}
 		
-		
 	function checkTel(){
-		
 		var tel = form.phoneNum.value;
-		
 		if(tel.length != 11 && tel.length == 11){
-		
 		return true;
 		}
 	}

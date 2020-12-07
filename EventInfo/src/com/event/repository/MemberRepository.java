@@ -96,7 +96,7 @@ public class MemberRepository {
 	}
 	
 	//select by uid
-	public Member find(Long member_uid) throws SQLException{
+	public Member findByUid(Long member_uid) throws SQLException{
 		Member member = null;
 		try {
 			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);

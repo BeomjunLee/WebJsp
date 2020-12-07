@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.event.domain.Member;
 import com.event.domain.Review;
 
 public class ReviewRepository {
@@ -84,6 +85,23 @@ public class ReviewRepository {
 		}
 		return result;
 	}
+	
+	//select by uid
+		public Review findByUid(Long review_uid) throws SQLException{
+			Review review = null;
+			try {
+				conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+				pstmt = conn.prepareStatement("select * from review where review_uid = ?");
+				pstmt.setLong(1, review_uid);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					review = createReview(rs);
+				}
+			}finally {
+				close();
+			}
+			return review;
+		}
 	
 	//select by category
 	public List<Review> findByCategory(String category) throws SQLException{

@@ -80,7 +80,7 @@ public class MemberService {
 	//회원정보
 	public Member findMember(Long member_uid) {
 		try {
-			return memberRepository.find(member_uid);
+			return memberRepository.findByUid(member_uid);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;

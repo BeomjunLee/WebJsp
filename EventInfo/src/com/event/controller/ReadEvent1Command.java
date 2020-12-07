@@ -17,7 +17,6 @@ public class ReadEvent1Command implements Command{
 	public void excute(HttpServletRequest request, HttpServletResponse response) {
 		//이벤트 uid받기
 		Long event_uid = Long.parseLong(String.valueOf(request.getParameter("uid")));
-		String category = "men"; //카테고리 이름
 		
 		//uid값 이벤트 찾기
 		Event event = eventService.findByUid(event_uid);
