@@ -40,7 +40,6 @@ public class ReviewService {
 	}
 	
 	//조회수
-	
 	//리뷰 보기
 	public Review findByUid(Long review_uid) {
 		try {
