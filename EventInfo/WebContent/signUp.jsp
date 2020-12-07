@@ -12,10 +12,10 @@
           <p class = "sign_title">회원가입</p>
           <li><label class="color" for="name">아이디</label><div class="ID"><input class="sign_box" type="text" name="id" id="id" ><input class ="check" type="button" onclick="return idDuplicated();" value="중복체크"></li></div>
           <li><label class="color" for="name">비밀번호</label><input class="sign_box" type="password" name="pw1" onchange="checkPassword()"></li>
-          <li><label class="color" for="name">비밀번호 확인</label><input class="sign_box" type="password" name="pw" onchange="checkPassword()"><span id="check">비밀번호 확인</span></li>
+          <li><label class="color" for="name">비밀번호 확인</label><input class="sign_box" type="password" name="pw" onchange="checkPassword()"><span id="check"></span></li>
           <li><label class="color" for="name">이름</label><input class="sign_box" type="text" name="name" onchange="checkName()"></li>
-          <li><label class="color" for="name">전화번호</label><input class="sign_box" type="text" name="phoneNum" id="tel_input" onchange="checkTel()"></li>
-          <li><label class="color" for="name">나이</label><input class="sign_box" type="text" name="age"></li>
+          <li><label class="color" for="name">전화번호</label><input class="sign_box" type="text" name="phoneNum" id="tel_input" onchange="checkTel()" placeholder=" '-'없이 적어주세요."></li>
+          <li><label class="color" for="name">나이</label><input class="sign_box" type="text" name="age" onchange="checkAge()"></li>
           <li><label class="color" for="name">성별</label>
           <input class="sign_box" style="margin-bottom:20px;" type="radio" name="gender" value="male">남성
           <input class="sign_box" style="margin-bottom:20px;" type="radio" name="gender" value="female">여성</li>
@@ -23,13 +23,43 @@
         
           <input type="hidden" id="idCheck" value="">
         <div class="join">
-          <button type="submit" >회원가입</button>
+          <button type="submit" onsubmit="checkAll()">회원가입</button>
         </div>
       </form>
     </section>
 
 </body>
 <script>
+
+function checkAll() { // 회원가입 누르면 모든 유효성 체크.
+    if (!checkUserId(form.userId.value)) {
+        return false;
+        
+    } else if (!checkPassword(form.pw1.value, form.pw.value)) {
+        return false;
+        
+    }  else if (!checkName(form.name.value)) {
+        return false;
+        
+    } else if (!checkBirth(form.identi1.value, form.identi2.value)) {
+        return false;
+        
+    } else if (!checkFavorite()) {
+        return false;
+        
+    } else if (!checkIntro()) {
+        return false;
+        
+    }
+    return true;
+}
+}
+
+
+출처: https://olsh1108o.tistory.com/entry/JS-회원가입-유효성-검사 [개발하는개발자]
+
+
+
 
 //아이디 중복체크 버튼클릭시
 function idDuplicated(){
@@ -127,23 +157,51 @@ function checkExistData(value, dataName) {//공백체크
 	function checkName(){
 			var name = form.name.value;
 			
-			if(name.length < 1 || name.length > 8){
-				alert("이름은 1글자 이상, 7글자 이하만 이용 가능합니다.");
+			if(name.length < 2 || name.length > 8){
+				alert("이름은 2글자 이상, 7글자 이하만 이용 가능합니다.");
 				form.name.value="";
 				form.name.focus();
 				return false;
 			}
 		}
 		
-		
+		//****************  번호   *****************************//
 	function checkTel(){
 		
 		var tel = form.phoneNum.value;
 		
-		if(tel.length != 11 && tel.length == 11){
-		
-		return true;
+		if(tel.length==11){
+			return true;
+		}else{
+			alert('옳바르지 않는 번호입니다.');
+			return false;
 		}
+			
+	}
+		
+	//****************  나이   *****************************//
+	function checkAge(){
+		var age = form.age.value;
+	
+		if(age>0 && age <120){// 1~120세만 적을 수 있음.
+			
+			return true;
+		}else{
+			alert('옳바르지 않는 나이입니다.');
+			return false;
+		}
+	}
+	
+	
+	//*********************  성별   *********************//
+	function checkSex(){
+		var gender = form.gender.values;
+		
+		if(gender == NULL){
+			alert('성별을 체크해 주세요.');
+			return false;
+		}else
+			return true;
 	}
 </script>
 <jsp:include page="fragment/footer.jsp" flush="false"/>
