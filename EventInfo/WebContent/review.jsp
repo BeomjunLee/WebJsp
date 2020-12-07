@@ -12,7 +12,7 @@
 <jsp:include page="fragment/header.jsp" flush="false"/>
 
 <%	
-	List<Review> reviews = new ArrayList<>();
+	List<Review> reviews = null;
 	reviews = (List<Review>)request.getAttribute("reviews");
 	Pagination pagination = (Pagination)request.getAttribute("pagination");
 //세션 체크
