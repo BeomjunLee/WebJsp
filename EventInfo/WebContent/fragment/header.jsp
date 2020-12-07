@@ -46,28 +46,28 @@
 	
     <section class="menu">
       <ul class="menu_men">
-        <li><a href="page1.html">Man</a></li>
+        <li><a href="page1.html">남자친구를 위한 EVENT</a></li>
         <!-- <li><a href="#">메뉴1</a></li>
         <li><a href="#">메뉴2</a></li>
         <li><a href="#">메뉴3</a></li> -->
       </ul>
 
       <ul class="menu_women">
-        <li><a href="page2.html">Women</a></li>
+        <li><a href="page2.html">여자친구를 위한 EVENT</a></li>
         <!-- <li><a href="#">메뉴1</a></li>
         <li><a href="#">메뉴2</a></li>
         <li><a href="#">메뉴3</a></li> -->
       </ul>
 
       <ul class="menu_parents">
-        <li><a href="page3.html">Parents</a></li>
+        <li><a href="page3.html">부모님을 위한 EVENT</a></li>
         <!-- <li><a href="#">메뉴1</a></li>
         <li><a href="#">메뉴2</a></li>
         <li><a href="#">메뉴3</a></li> -->
       </ul>
 
       <ul class="menu_review">
-        <li><a href="review.do">Review</a></li>
+        <li><a href="review.do">리뷰 보기</a></li>
         <!-- <li><a href="#">메뉴1</a></li> -->
       </ul>
     </section>
