@@ -9,7 +9,7 @@ import com.event.domain.Event;
 import com.event.domain.Pagination;
 import com.event.service.EventService;
 
-public class Event_1Command implements Command{
+public class Event1Command implements Command{
 	EventService eventService = EventService.getInstance();
 	
 	@Override

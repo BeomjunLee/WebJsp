@@ -14,6 +14,17 @@ public class EventService {
 	}
 	
 	EventRepository eventRepository = EventRepository.getInstance();
+	
+	//이벤트 보기
+	public Event findByUid(Long event_uid) {
+		try {
+			return eventRepository.find(event_uid);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	//이벤트 전체 검색
 	public List<Event> findAll(String category, int startIndex, int endIndex){
 		try {
