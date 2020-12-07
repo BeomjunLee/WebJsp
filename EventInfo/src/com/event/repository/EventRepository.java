@@ -60,6 +60,23 @@ public class EventRepository {
 		return event;
 	}
 	
+	//select by uid
+		public Event find(Long event_uid) throws SQLException{
+			Event event = null;
+			try {
+				conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+				pstmt = conn.prepareStatement("select * from event where event_uid = ?");
+				pstmt.setLong(1, event_uid);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					event = createEvent(rs);
+				}
+			}finally {
+				close();
+			}
+			return event;
+		}
+	
 	//select all
 	public List<Event> findAll(String category, int startIndex, int endIndex) throws SQLException{
 		List<Event> events = new ArrayList<>();

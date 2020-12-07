@@ -79,6 +79,11 @@ public class FrontController extends HttpServlet {
 			command.excute(request, response);
 			viewPage = "review.jsp";
 			break;
+		case "/readReview.do":
+			command = new ReadReviewCommand();
+			command.excute(request, response);
+			viewPage = "readReview.jsp";
+			break;
 		case "/writeReview.do":
 			viewPage = "writeReview.jsp";
 			break;
@@ -90,12 +95,16 @@ public class FrontController extends HttpServlet {
 		case "/myPage.do":
 			viewPage = "myPage.jsp";
 			break;
-		case "/event_1.do":
-			command = new Event_1Command();
+		case "/event1.do":
+			command = new Event1Command();
 			command.excute(request, response);
-			viewPage = "event_1.jsp";
+			viewPage = "event1.jsp";
 			break;
-			
+		case "/readEvent1.do":
+			command = new ReadEvent1Command();
+			command.excute(request, response);
+			viewPage = "readEvent1.jsp";
+			break;	
 		}
 		
 		// response 를 위해서 

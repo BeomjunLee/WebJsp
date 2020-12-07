@@ -165,10 +165,13 @@ function checkExistData(value, dataName) {//공백체크
 			}
 		}
 		
+<<<<<<< HEAD
 		//****************  번호   *****************************//
+=======
+>>>>>>> d14f1fb245986c29fa2816b3447b16464a2773f7
 	function checkTel(){
-		
 		var tel = form.phoneNum.value;
+<<<<<<< HEAD
 		
 		if(tel.length==11){
 			return true;
@@ -189,6 +192,10 @@ function checkExistData(value, dataName) {//공백체크
 		}else{
 			alert('옳바르지 않는 나이입니다.');
 			return false;
+=======
+		if(tel.length != 11 && tel.length == 11){
+		return true;
+>>>>>>> d14f1fb245986c29fa2816b3447b16464a2773f7
 		}
 	}
 	

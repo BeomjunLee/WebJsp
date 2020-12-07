@@ -24,6 +24,7 @@ public class MemberService {
 	protected MemberService() {} //new로 객체생성 막기
 	
 //	//회원select
+	
 //	public Member findMember() {
 //		Member member = new Member();
 //		
@@ -80,7 +81,7 @@ public class MemberService {
 	//회원정보
 	public Member findMember(Long member_uid) {
 		try {
-			return memberRepository.find(member_uid);
+			return memberRepository.findByUid(member_uid);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;

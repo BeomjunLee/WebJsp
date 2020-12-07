@@ -9,7 +9,7 @@ import com.event.domain.Event;
 import com.event.domain.Pagination;
 import com.event.service.EventService;
 
-public class Event_1Command implements Command{
+public class Event1Command implements Command{
 	EventService eventService = EventService.getInstance();
 	
 	@Override
@@ -18,7 +18,7 @@ public class Event_1Command implements Command{
 		if(request.getParameter("page") == null) page = 1;
 		else page = Integer.parseInt(String.valueOf(request.getParameter("page")));
 		
-		String category = "men"; //카테고리 이름
+		String category = "men"; // 카테고리 이름
 		
 		int totalListCnt = eventService.totalListCount(category); //전체 글수
 		

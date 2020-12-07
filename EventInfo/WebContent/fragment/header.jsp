@@ -46,7 +46,7 @@
 	
     <section class="menu">
       <ul class="menu_men">
-        <li><a href="event_1.do">남자친구를 위한 EVENT</a></li>
+        <li><a href="event1.do">남자친구를 위한 EVENT</a></li>
         <!-- <li><a href="#">메뉴1</a></li>
         <li><a href="#">메뉴2</a></li>
         <li><a href="#">메뉴3</a></li> -->

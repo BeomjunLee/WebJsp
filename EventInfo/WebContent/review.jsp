@@ -38,21 +38,21 @@
          <table class="table-striped">
             <thead>
                <tr>
+                  <th class = "table_color" >추천수</th>
                   <th class = "table_color" >제목</th>
                   <th class = "table_color" >작성자</th>
                   <th class = "table_color" >작성일</th>
                   <th class = "table_color" >조회수</th>
-                  <th class = "table_color" >추천수</th>
                </tr>
             </thead>
             <tbody>
      		 <%for(Review review : reviews) {%>
                <tr>
-                  <td><%=review.getTitle() %></td>
+                  <td><%=review.getRecommend() %></td>
+                  <td><a href="readReview.do?uid=<%=review.getReview_uid()%>"><%=review.getTitle() %></a></td>
                   <td><%=review.getWriter() %></td>
                   <td><%=review.getRegdate() %></td>
                   <td><%=review.getView_count() %></td>
-                  <td><%=review.getRecommend() %></td>
                </tr>
             <%} %> 
          <!--   	 <tr>
