@@ -31,32 +31,7 @@
 </body>
 <script>
 
-function checkAll() { // 회원가입 누르면 모든 유효성 체크.
-    if (!checkUserId(form.userId.value)) {
-        return false;
-        
-    } else if (!checkPassword(form.pw1.value, form.pw.value)) {
-        return false;
-        
-    }  else if (!checkName(form.name.value)) {
-        return false;
-        
-    } else if (!checkBirth(form.identi1.value, form.identi2.value)) {
-        return false;
-        
-    } else if (!checkFavorite()) {
-        return false;
-        
-    } else if (!checkIntro()) {
-        return false;
-        
-    }
-    return true;
-}
-}
 
-
-출처: https://olsh1108o.tistory.com/entry/JS-회원가입-유효성-검사 [개발하는개발자]
 
 
 
@@ -165,13 +140,10 @@ function checkExistData(value, dataName) {//공백체크
 			}
 		}
 		
-<<<<<<< HEAD
 		//****************  번호   *****************************//
-=======
->>>>>>> d14f1fb245986c29fa2816b3447b16464a2773f7
 	function checkTel(){
+		
 		var tel = form.phoneNum.value;
-<<<<<<< HEAD
 		
 		if(tel.length==11){
 			return true;
@@ -192,10 +164,6 @@ function checkExistData(value, dataName) {//공백체크
 		}else{
 			alert('옳바르지 않는 나이입니다.');
 			return false;
-=======
-		if(tel.length != 11 && tel.length == 11){
-		return true;
->>>>>>> d14f1fb245986c29fa2816b3447b16464a2773f7
 		}
 	}
 	
