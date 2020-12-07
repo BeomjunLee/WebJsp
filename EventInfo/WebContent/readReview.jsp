@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="front/css/review_look.css">
+<link rel="stylesheet" href="front/css/readReview.css">
 <title>눈담화</title>
 <jsp:include page="fragment/header.jsp" flush="false"/>
   
