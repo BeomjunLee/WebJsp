@@ -22,14 +22,15 @@ public class ReviewCommand implements Command{
 		String category = request.getParameter("category");
 		System.out.println(category);
 		int totalListCnt = reviewService.totalListCount();
-		Pagination pagination = new Pagination(totalListCnt, page, 10);
+		Pagination pagination = new Pagination(totalListCnt, page, 3);
 		int startIndex = pagination.getStartIndex();
-		int pageSize = pagination.getPageSize();
+		int endIndex = pagination.getEndIndex();
 		
-		List<Review> reviews = reviewService.findAll(startIndex, pageSize);
+		List<Review> reviews = reviewService.findAll(startIndex, endIndex);
 		
 		System.out.println("전체글수: " + pagination.getTotalListCnt() + " | 현재 페이지: " + pagination.getPage() + " | 시작페이지:" +
-                pagination.getStartPage() + " | 끝페이지:" + pagination.getEndPage() + "");//확인용
+                pagination.getStartPage() + " | 끝페이지:" + pagination.getEndPage() + "|startIndex:" + startIndex + "|endIndex:" + endIndex
+                + "|preBlock:" + pagination.getPreBlock() + "|nextBlock:" + pagination.getNextBlock()+"|block:"+pagination.getBlock());//확인용
 		
 		request.setAttribute("reviews", reviews);
 		request.setAttribute("pagination", pagination);

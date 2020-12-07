@@ -68,18 +68,23 @@
    <div align="center">
         <%if(pagination.getTotalListCnt() != 0){
            	if(pagination.getPage() != 1){%>
-                <a href="review.do?page=1">FIRST</a>
-                <a href="review.do?page=<%=pagination.getPreBlock()%>">&laquo;</a>
+                <a href="review.do?page=1">처음으로</a>
+                <%}
+            if(pagination.getPage() > pagination.getPageSize()){ %>    
+            	<a href="review.do?page=<%=pagination.getPreBlock()%>">&laquo;</a>
        		<%}
         }%>
-        <%for(int i=pagination.getStartPage(); i <= pagination.getEndPage(); i++) {%>
-        	<a href="review.do?page=<%=i%>"><%=i%></a>
+        <%
+        	for(int i=pagination.getStartPage(); i <= pagination.getEndPage(); i++) {%>
+        		<a href="review.do?page=<%=i%>"><%=i%></a>
         <%} 
         	if(pagination.getTotalListCnt() != 0){
-         	  if(pagination.getPage() != pagination.getTotalPageCnt()){%>
+            if(pagination.getStartPage() + pagination.getBlockSize() - 1 < pagination.getTotalPageCnt()){%>
                 <a href="review.do?page=<%=pagination.getNextBlock()%>">&raquo;</a>
-                <a href="review.do?page=<%=pagination.getTotalPageCnt()%>">LAST</a>
             <%}
+         	  if(pagination.getPage() != pagination.getTotalPageCnt()){%>
+                <a href="review.do?page=<%=pagination.getTotalPageCnt()%>">마지막으로</a>
+            <%} 
       	}%>
     </div>
     

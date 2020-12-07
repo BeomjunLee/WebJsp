@@ -25,9 +25,9 @@ public class Event_1Command implements Command{
 		//페이징
 		Pagination pagination = new Pagination(totalListCnt, page, 4);
 		int startIndex = pagination.getStartIndex();
-		int pageSize = pagination.getPageSize();
+		int endIndex = pagination.getEndIndex();
 		
-		List<Event> events = eventService.findAll(category, startIndex, pageSize);
+		List<Event> events = eventService.findAll(category, startIndex, endIndex);
 		
 		System.out.println("전체글수: " + pagination.getTotalListCnt() + " | 현재 페이지: " + pagination.getPage() + " | 시작페이지:" +
                 pagination.getStartPage() + " | 끝페이지:" + pagination.getEndPage() + "");//확인용

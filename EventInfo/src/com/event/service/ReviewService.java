@@ -42,9 +42,9 @@ public class ReviewService {
 	//조회수
 	
 	//전체 검색
-	public List<Review> findAll(int startIndex, int pageSize) {
+	public List<Review> findAll(int startIndex, int endIndex) {
 		try {
-			return reviewRepository.findAll(startIndex, pageSize);
+			return reviewRepository.findAll(startIndex, endIndex);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;

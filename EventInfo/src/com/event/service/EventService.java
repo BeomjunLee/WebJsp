@@ -15,9 +15,9 @@ public class EventService {
 	
 	EventRepository eventRepository = EventRepository.getInstance();
 	//이벤트 전체 검색
-	public List<Event> findAll(String category, int startIndex, int pageSize){
+	public List<Event> findAll(String category, int startIndex, int endIndex){
 		try {
-			return eventRepository.findAll(category, startIndex, pageSize);
+			return eventRepository.findAll(category, startIndex, endIndex);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;

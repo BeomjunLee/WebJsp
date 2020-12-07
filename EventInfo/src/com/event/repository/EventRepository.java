@@ -61,14 +61,17 @@ public class EventRepository {
 	}
 	
 	//select all
-	public List<Event> findAll(String category, int startIndex, int pageSize) throws SQLException{
+	public List<Event> findAll(String category, int startIndex, int endIndex) throws SQLException{
 		List<Event> events = new ArrayList<>();
 		try {
 			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
-			pstmt = conn.prepareStatement("select * from event where category = ? order by recommend desc OFFSET ? ROWS FETCH FIRST ? ROWS ONLY");
+			//oracle 12c¹öÀü pstmt = conn.prepareStatement("select * from event where category = ? order by recommend desc OFFSET ? ROWS FETCH FIRST ? ROWS ONLY");
+			pstmt = conn.prepareStatement("select * from " + 
+					"(select rownum as rnum, t.* from (select * from event order by recommend desc) t) " + 
+					"where category = ? and rnum >= ? and rnum <= ?");
 			pstmt.setString(1,  category);
 			pstmt.setInt(2, startIndex);
-			pstmt.setInt(3, pageSize);
+			pstmt.setInt(3, endIndex);
 			
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
