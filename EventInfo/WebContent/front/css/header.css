@@ -205,14 +205,68 @@ footer>pre{
 }
 .m_container2{
 	width:80%;
-	margin:0 auto;
+	height:30%;
+	margin:10% auto;
 	display:flex;
+	margin-bottom:100px;
 }
 .s_container1
 {
 	width:65%;
+	padding: 70px 0;
+	font-size:1em;
 }
 .s_container2
 {
 	width:35%;
+}
+.s_container2 img{
+	object-fit:cover;
+	width:100%;
+}
+.line{
+	width:10%; 
+	margin-left:10%;
+	border-left:3px solid #eeeeee;
+}
+.m_title{
+	font-size:2.7em;
+	color:grey;
+	border-bottom:3px solid #ff7276;
+	margin-bottom:7px;
+}
+.main_button1{
+	display:block;
+	text-align:center;
+	margin-top:10px;
+	margin-right:10px;
+	padding-top:15px;
+	font-family: 'GmarketSansMedium';
+	width:140px;
+	height:40px;
+	border:0;
+	border-radius:7px;
+	background-color:#ff7276;
+	color:white;
+	font-size:0.8em;
+}
+.main_button1:hover{
+	
+	margin-top:10px;
+	margin-right:10px;
+	font-family: 'GmarketSansMedium';
+	width:140px;
+	height:40px;
+	border:3px solid #ff7276;
+	border-radius:7px;
+	background-color:white;
+	color:#ff7276;
+	font-size:0.8em;
+}
+.s_container1_1
+{
+	display:flex;
+}
+.m_p1{
+	font-size:1.6em;
 }

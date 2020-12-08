@@ -17,7 +17,8 @@
 <div class="wrap" align="center">
   <div class="table_div" align="center">
     
-  	<table style ="border:none;">
+  	<table style ="width:100%; border:none;">
+  		<tbody>
   		<tr class ="review_title">
   			<td class ="td1" colspan="2">
   				<span class ="title1"><%=review.getTitle()%></span>
@@ -25,7 +26,7 @@
   			</td>
   		</tr>
   		<tr align ="center">
-  			<!--  <td style="width:100%;" id="img_table"><img src="" alt=""></td>-->
+  			 <td style="width:100%;" id="img_table"><img src="" onerror="this.style.display='none'" alt=" "></td>
   		</tr>
   		<tr>
   			<td class ="td2"colspan="2"><%=review.getContent() %></td>
@@ -40,6 +41,7 @@
   		<%-- <%
   			}
   		--%>
+  		</tbody>
   	</table>
   	<input class = "button1" type="button" value="뒤로 가기" onclick="history.back()">
   </div>
