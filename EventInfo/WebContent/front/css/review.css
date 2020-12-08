@@ -10,6 +10,18 @@
      font-weight: normal;
      font-style: normal;
 }
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 body,html{
   margin: 0px;
   padding: 0px;
@@ -17,7 +29,7 @@ body,html{
 
 }
 body{
-   font-family: 'ImcreSoojin';
+	font-family: 'NIXGONM-Vb';
   /* font-family: 'Nanum Brush Script'; */
 }
 
@@ -147,9 +159,18 @@ footer{
   display: flex;
 }
 .sub_container{
-	border-bottom:7px solid #ff7276;
-	padding:10px;
+	width:100%;
+	height:50px;
+	font-family: 'NIXGONM-Vb';
 	text-align:center;
+	border-top:3px solid #eeeeee;
+	border-left:3px solid #eeeeee;
+	border-right:3px solid #ff7276;
+	border-bottom:3px solid #ff7276;
+	padding-top:15px;
+	background-color:white;
+	margin-top:20px;
+	margin-bottom:20px;
 }
 .main_title{
 	font-family: 'NIXGONM-Vb';

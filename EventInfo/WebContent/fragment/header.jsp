@@ -36,7 +36,7 @@
         <li><a href="myPage.do" style="color:black;">마이페이지</a></li>
         <li><a href="logout.do" style="color:black;">로그아웃</a></li>
 <%}else{%>
-        <li><a href="login.do" style="color:black;">로그인</a></li>
+        <li><a class ="log" href="login.do" style="color:black;">로그인</a></li>
 <%}%>
         <li><a href="#" class="ham"><i class="fas fa-bars" style="color:black"></i></a></li>
       </ul>

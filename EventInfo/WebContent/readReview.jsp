@@ -7,27 +7,31 @@
 <link rel="stylesheet" href="front/css/readReview.css">
 <title>눈담화</title>
 <jsp:include page="fragment/header.jsp" flush="false"/>
+
+<body>
+
 <%
 	Review review = (Review)request.getAttribute("review");
 %> 
 
 <div class="wrap" align="center">
   <div class="table_div" align="center">
+    
   	<table style ="border:none;">
   		<tr class ="review_title">
   			<td class ="td1" colspan="2">
   				<span class ="title1"><%=review.getTitle()%></span>
-  				<span class ="title2"><%=review.getWriter() %>&nbsp;&nbsp;<%=review.getRegdate() %></span>
+  				<span class ="title2"><%=review.getWriter() %><div style="border-left: thick solid grey;"></div><%=review.getRegdate() %></span>
   			</td>
   		</tr>
   		<tr align ="center">
-  			<td class ="td1" id="img_table"><img src="" alt="이미지"></td>
+  			<!--  <td style="width:100%;" id="img_table"><img src="" alt=""></td>-->
   		</tr>
   		<tr>
-  			<td class ="td1" colspan="2"><%=review.getContent() %></td>
+  			<td class ="td2"colspan="2"><%=review.getContent() %></td>
   		</tr>
 		<tr align="right">
-  			<td class ="td2" >조회수: <%=review.getView_count() %>&nbsp;&nbsp;추천: <%=review.getRecommend() %></td>
+  			<td class ="td3" >조회수: <%=review.getView_count() %>&nbsp;&nbsp;추천: <%=review.getRecommend() %></td>
 		</tr>
   		<%--<%
   			for(Object img:img){
@@ -37,7 +41,7 @@
   			}
   		--%>
   	</table>
-  	<input type="button" value="목록" onclick="history.back()">
+  	<input class = "button1" type="button" value="뒤로 가기" onclick="history.back()">
   </div>
   	
   

@@ -26,7 +26,7 @@
     <div class="container">
       <div class = "row">
       	<div class = "sub_container">
-      		<span class = "main_title">리뷰 게시판</span>
+      		<span style= "font-family: 'NIXGONM-Vb'; font-size:1.7em;" class = "main_title">리뷰 게시판</span>
       	</div>
       <select class="review_select" name="rivew_sel">
         <option value="all">모두보기</option>
@@ -35,7 +35,7 @@
         <option value="parents">부모님을 위한</option>
       </select>
 	 
-         <table class="table-striped">
+         <table style ="font-family: 'IBMPlexSansKR-Regular';" class="table-striped">
             <thead>
                <tr>
                   <th class = "table_color" >추천수</th>
