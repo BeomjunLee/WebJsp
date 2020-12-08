@@ -25,7 +25,7 @@
   			</td>
   		</tr>
   		<tr align ="center">
-  			<!--  <td style="width:100%;" id="img_table"><img src="" alt=""></td>-->
+  			<td style="width:100%;" id="img_table"><img src="front/img/<%=review.getImg()%>" alt=""></td>
   		</tr>
   		<tr>
   			<td class ="td2"colspan="2"><%=review.getContent() %></td>
