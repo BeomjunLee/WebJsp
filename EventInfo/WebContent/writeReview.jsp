@@ -9,7 +9,7 @@
   <hr><!-- 이 및으론 리뷰 쪽 -->
   <div class="container">
     <div class="row">
-      <form method="post" action="writeReviewOk.do" enctype="multipart/form-data">
+      <form method="post" action="writeReviewOk.do" name="form" onsubmit="return check_All()">
         <table class="table" style="text-align: center; border: 1px solid #dddddd">
           <thead>
             <tr>
@@ -25,17 +25,17 @@
                         <option value="men" selected>남자친구를 위한</option>
                         <option value="women">여자친구를 위한</option>
                         <option value="parents">부모님을 위한</option>
-                		</select>
+                </select>
             </tr>
             <tr>
-			
-              <td><input type="text" style="width:80%; height:auto;" maxlength="100" id="review_text" placeholder="글 제목" name="title" maxlength="50" /></td>
+         
+              <td><input type="text" style="width:80%; height:auto;" maxlength="100" id="review_text" placeholder="글 제목" onchange="check_title()" name="title" maxlength="50" /></td>
 
             </tr>
 
             <tr>
 
-              <td><textarea class="form-control" style="width:80%;height: 250px;" rows="50" placeholder="글 내용" name="content" maxlength="2048"></textarea></td>
+              <td><textarea class="form-control" style="width:80%;height: 250px;" rows="50" placeholder="글 내용" onchange="check_write()" name="content" maxlength="2048"></textarea></td>
 
             </tr>
 
@@ -43,7 +43,7 @@
 
         </table>
         <div class ="review_service" align="center">
-          <input type="file" class ="review_button" value="이미지" name="img" accept="img/*" ><br>
+          <input type="file" class ="review_button" value="이미지" name="img" accept="img/*" ><!-- required multiple onchange="handleFiles(this.files)" -->
           <input type="submit" class ="review_button" value="글 올리기"/>
 
         </div>
@@ -51,5 +51,72 @@
     </div>
   </div>
 </body>
+
+<script>
+
+   function check_All(){
+      if(!check_titleAll()){
+         alert("글 제목을 다시 작성해 주세요.");
+         return false;
+      }else if(!check_writeAll()){
+         alert("리뷰를 다시 작성해 주세요.");
+         return false;
+      }else
+         return true;
+   }
+
+   function check_writeAll(){//게시판 글쓰는 구간 유효성 검사.
+      var write = form.content.value;
+      var writeRegExp = /^[a-zA-Z가-힣ㄱ-ㅎ0-9\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"\s]{1,2000}$/; 
+
+      if(!write.replace(/^\s+|\s$/,"")){// 글자수가 모두 공백일 경우.
+         return false;
+      }
+
+      if(!writeRegExp.test(write)){
+         return false;
+      }else
+         return true;
+   }
+   
+   function check_titleAll(){// 글 제목 리체크.
+      var title = form.title.value;
+      var titleRegExp = /^[a-zA-Z가-힣ㄱ-ㅎ0-9\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"\s]{4,25}$/; 
+      
+      
+      
+      if(!title.replace(/^\s+|\s$/,"")){// 글자수가 모두 공백일 경우.
+         return false;
+      }
+      
+      if(!titleRegExp.test(title)){
+         
+            return false;
+      }else
+         return true;
+      
+   }
+   
+   function check_title(){// 타이틀 유효성 검사 구간.
+      var title = form.title.value;
+      var titleRegExp = /^[a-zA-Z가-힣0-9\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"\s]{4,25}$/; 
+      
+      if(!titleRegExp.test(title)){
+         alert("글 제목은 4 ~ 25글자수 로 작성하셔야 합니다.");
+      }
+      
+   }//타이틀 유효성검사 끝.
+   
+   function check_write(){//게시판 글쓰는 구간 유효성 검사.
+      var write = form.content.value;
+      var writeRegExp = /^[a-zA-Z가-힣0-9\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"\s]{1,2000}$/; 
+      
+      if(!writeRegExp.test(write)){
+         alert("리뷰 내용을 적어주세요.");
+      }
+   }
+   
+   
+</script>
 <jsp:include page="fragment/footer.jsp" flush="false"/>
 </html>
