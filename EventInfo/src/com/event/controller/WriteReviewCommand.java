@@ -32,7 +32,7 @@ public class WriteReviewCommand implements Command{
 		//멤버 찾기(이름)
 		Member member = memberService.findMember(member_uid);
 		
-		String uploadPath = session.getServletContext().getRealPath("/front/img");
+		String uploadPath = session.getServletContext().getRealPath("/upload");
 		System.out.println("절대경로 : " + uploadPath);
 		     
 		    int maxSize =1024 *1024 *10;// 한번에 올릴 수 있는 파일 용량 : 10M로 제한
