@@ -25,10 +25,29 @@ public class MemberService {
 	
 	protected MemberService() {} //new로 객체생성 막기
 	
-	//비밀번호 찾기
+	//비밀번호 찾기 인증 코드 보내기
 	public String findPwSendEmail(String to) throws Exception {
 		PasswordEmail email = new PasswordEmail();
 		return email.sendEmail(to);
+	}
+	
+	//비밀번호 인증코드 체크
+	public int checkCode(String code, String inputCode) {
+		int result = 0;
+		if(code.equals(inputCode)) {
+			System.out.println("인증 성공");
+			return result = 1;
+		}else {
+			System.out.println("인증 실패");
+			return result = 0;
+		}
+	}
+	
+	//비밀번호 변경
+	public int changePw(String pw, String id) throws SQLException {
+			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			String encodePw = passwordEncoder.encode(pw);
+			return memberRepository.updatePw(encodePw, id);
 	}
 	
 	//로그인 체크
@@ -88,7 +107,7 @@ public class MemberService {
 		}
 	}
 	
-	//회원정보 아이디로 찾
+	//회원정보 아이디로 찾기
 	public Member findMemberById(String id) {
 		try {
 			return memberRepository.findById(id);

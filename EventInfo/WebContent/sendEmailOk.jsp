@@ -10,9 +10,11 @@
 <%
 	int result = Integer.parseInt(String.valueOf(request.getAttribute("result")));
 	String code = String.valueOf(request.getAttribute("code"));
+	String id = String.valueOf(request.getAttribute("id"));
 %>
 <form id="form" action="inputPwCode.do" method="post">
 <input type="hidden" id="code" name="code" value="<%=code %>">
+<input type="hidden" id="id" name="id" value="<%=id %>">
 </form>
 <%if(result == 2) {%>
 	<script>

@@ -115,13 +115,13 @@ public class MemberRepository {
 	}
 	
 	//update pw
-	public int update(String pw, String id) throws SQLException{
+	public int updatePw(String pw, String id) throws SQLException{
 		int result = 0;
 		try {
 			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
 			pstmt = conn.prepareStatement("update member set pw = ? where id = ?");
 			pstmt.setString(1, pw);
-			pstmt.setString(2,  id);
+			pstmt.setString(2, id);
 			result = pstmt.executeUpdate();
 		}finally {
 			close();

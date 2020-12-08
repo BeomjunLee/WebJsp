@@ -73,8 +73,25 @@ public class FrontController extends HttpServlet {
 			viewPage = "sendEmailOk.jsp";
 			break;
 		case "/inputPwCode.do":
+			command = new InputPwCodeCommand();
+			command.excute(request, response);
 			viewPage = "inputPwCode.jsp";
 			break;
+		case "/inputPwCodeOk.do":
+			command = new InputPwCodeOkCommand();
+			command.excute(request, response);
+			viewPage = "inputPwCodeOk.jsp";
+			break;
+		case "/inputNewPw.do":
+			command = new InputNewPwCommand();
+			command.excute(request, response);
+			viewPage = "inputNewPw.jsp";
+			break;
+		case "/inputNewPwOk.do":
+			command = new InputNewPwOkCommand();
+			command.excute(request, response);
+			viewPage = "inputNewPwOk.jsp";
+			break;	
 		case "/signUp.do":
 			viewPage = "signUp.jsp";
 			break;

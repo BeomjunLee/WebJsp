@@ -35,5 +35,6 @@ public class sendEmailCommand implements Command{
 		System.out.println(code);
 		request.setAttribute("result", result);
 		request.setAttribute("code", code);
+		request.setAttribute("id", id);
 	}
 }
