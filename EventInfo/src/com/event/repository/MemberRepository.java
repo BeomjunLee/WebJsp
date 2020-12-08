@@ -50,6 +50,7 @@ public class MemberRepository {
 				rs.getString("id"),
 				rs.getString("pw"),
 				rs.getString("name"),
+				rs.getString("email"),
 				rs.getString("phoneNum"),
 				rs.getInt("age"),
 				rs.getString("gender")
@@ -63,13 +64,14 @@ public class MemberRepository {
 		int result = 0;
 		try {
 			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
-			pstmt = conn.prepareStatement("insert into member values(member_seq.nextval, ?, ?, ?, ?, ?, ?)");
+			pstmt = conn.prepareStatement("insert into member values(member_seq.nextval, ?, ?, ?, ?, ?, ?, ?)");
 			pstmt.setString(1, member.getId());
 			pstmt.setString(2,  member.getPw());
 			pstmt.setString(3, member.getName());
-			pstmt.setString(4, member.getPhoneNum());
-			pstmt.setInt(5, member.getAge());
-			pstmt.setString(6, member.getGender());
+			pstmt.setString(4, member.getEmail());
+			pstmt.setString(5, member.getPhoneNum());
+			pstmt.setInt(6, member.getAge());
+			pstmt.setString(7, member.getGender());
 			result = pstmt.executeUpdate();
 			System.out.println(member.toString()); //회원 로그
 		}finally {
@@ -112,10 +114,18 @@ public class MemberRepository {
 		return member;
 	}
 	
-	//update
-	public int update(Long member_uid) throws SQLException{
+	//update pw
+	public int update(String pw, String id) throws SQLException{
 		int result = 0;
-		
+		try {
+			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+			pstmt = conn.prepareStatement("update member set pw = ? where id = ?");
+			pstmt.setString(1, pw);
+			pstmt.setString(2,  id);
+			result = pstmt.executeUpdate();
+		}finally {
+			close();
+		}
 		return result;
 	}
 }

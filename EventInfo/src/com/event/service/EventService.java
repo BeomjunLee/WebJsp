@@ -24,7 +24,6 @@ public class EventService {
 			return null;
 		}
 	}
-	
 	//이벤트 전체 검색
 	public List<Event> findAll(String category, int startIndex, int endIndex){
 		try {

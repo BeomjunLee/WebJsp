@@ -3,6 +3,8 @@ package com.event.controller;
 import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.event.security.BCryptPasswordEncoder;
 import com.event.service.MemberService;
 
 public class LoginCommand implements Command{
