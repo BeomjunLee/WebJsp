@@ -9,7 +9,7 @@
   <hr><!-- 이 및으론 리뷰 쪽 -->
   <div class="container">
     <div class="row">
-      <form method="post" action="writeReviewOk.do">
+      <form method="post" action="writeReviewOk.do" enctype="multipart/form-data">
         <table class="table" style="text-align: center; border: 1px solid #dddddd">
           <thead>
             <tr>
@@ -25,7 +25,7 @@
                         <option value="men" selected>남자친구를 위한</option>
                         <option value="women">여자친구를 위한</option>
                         <option value="parents">부모님을 위한</option>
-                </select>
+                		</select>
             </tr>
             <tr>
 			
@@ -43,7 +43,7 @@
 
         </table>
         <div class ="review_service" align="center">
-          <input type="file" class ="review_button" value="이미지" name="img" accept="img/*" ><!-- required multiple onchange="handleFiles(this.files)" -->
+          <input type="file" class ="review_button" value="이미지" name="img" accept="img/*" ><br>
           <input type="submit" class ="review_button" value="글 올리기"/>
 
         </div>
