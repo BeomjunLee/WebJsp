@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'ImcreSoojin';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/ImcreSoojin.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+     font-family: 'NIXGONM-Vb';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.mP_wrap{
+	width:90%;
+	margin:0 auto;
+	background-color:white;
+	
+	box-shadow:0px 3px #eeeeee;
+}
+.mP_container{
+	width:100%;
+}
+.mP_sub_container{
+	width:50%;
+}
+
+.mP_main_title{
+	display:block;
+	text-align:left;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	font-size:1.8em;
+	color:#ff7276;
+	text-align:center;
+}
+.mP_info{
+	padding:10px;
+	display:flex;
+}
+.mP_info span{
+	font-family: 'IBMPlexSansKR-Regular';
+	font-size:0.9em;
+	color:#000000;
+	width:80px;
+	text-align:left;
+	display:block;
+}

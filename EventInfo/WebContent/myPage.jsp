@@ -1,35 +1,74 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>눈담화</title>
-<jsp:include page="fragment/header.jsp" flush="false"/>
-	
-	<h2>회원 정보</h2>    <br>
-	
-	아이디 : dwddd<br>
-	이름 : 이범준 <br>
-	전화번호 : 01000000000<br>
-	나이 : 25<br>
-	성별 : Men<br>
-	
-<hr>
+<link rel="stylesheet" href="front/css/myPage.css">
+<jsp:include page="fragment/header.jsp" flush="false" />
 
 
-<input type="button" value="나의 리뷰 보기"><br> <!-- 나의 리뷰보기 클릭했을때 리뷰 테이블이 나옴 -->
-<table>
-	<tr>
-		<th>제목</th>
-		<th>날짜</th>
-	</tr>
-	<tr>
-		<td>안녕하세요</td>
-		<td>2020-12-03</td>
-	</tr>
-</table>
+	<div style="width:100%;height:5%;background-color:#fdf4f4;"></div>
+<div style="background-color:#fdf4f4;">
+	<div class="mP_wrap">
+		<div class="mP_container">
+			<span style="font-size: 2em; font-family: 'NIXGONM-Vb';" class="mP_main_title">회원정보</span>
+			<hr style="color:grey;">
+			<div style="display:flex;">
+				<div class="mP_sub_container">
+					<div class="mP_info">
+						<span>아이디</span><span>cksgh2064</span>
+					</div>
+					<div class="mP_info">
+						<span>이름</span><span>김찬호</span>
+					</div>
+					<div class="mP_info">
+						<span>이메일</span><span>cksgh2064@naver.com</span>
+					</div>
+				</div>
+	
+				<div class="mP_sub_container">
+					<div class="mP_info">
+						<span>나이</span><span>25</span>
+					</div>
+					<div class="mP_info">
+						<span>성별</span><span>남자</span>
+					</div>
+					<div class="mP_info">
+						<span>전화번호</span><span style="width:200px;">010-3936-2064</span>
+					</div>
+				</div>
+				</div>
+			</div>
 
+		<div class="mP_container">
+		<span style="font-size: 2em; font-family: 'NIXGONM-Vb';" class="mP_main_title">나의리뷰</span>
+		<hr style="color:grey;margin-bottom:10px;">
+		<table style=" font-family: 'IBMPlexSansKR-Regular'; width:100%; font-size:0.9em;color:#000000;">
+           <thead>
+               <tr>
+                  <th style="width:15%;">추천수</th>
+                  <th style="width:45%;">제목</th>
+                  <th style="width:15%;">작성자</th>
+                  <th style="width:15%;">작성일</th>
+                  <th style="width:10%;">조회수</th>
+               </tr>
+            </thead>
+            <tbody>
+            	<tr>
+				  <td align =center>0</td>
+                  <td align =center>와우</td>
+                  <td align =center>김찬호</td>
+                  <td align =center>2020-12-09</td>
+                  <td align =center>1</td>
+            	</tr>	
+            </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div style="width:100%; height:5%; background-color:#fdf4f4; box-shadow:5px 5px #eeeeee;"></div>
 </body>
-<jsp:include page="fragment/footer.jsp" flush="false"/>
+<jsp:include page="fragment/footer.jsp" flush="false" />
 </html>
