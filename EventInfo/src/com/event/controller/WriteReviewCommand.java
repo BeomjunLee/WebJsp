@@ -27,15 +27,15 @@ public class WriteReviewCommand implements Command{
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String category = request.getParameter("category");
-		String img = "테스트이미지";
+		String img1 = request.getParameter("img1");
 		String regdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 		
 		//멤버 찾기(이름)
 		Member member = memberService.findMember(member_uid);
 		
-		Review review = new Review(review_uid, member_uid, member.getName(), category, title, content, img, 0, 0, regdate);
+		Review review = new Review(review_uid, member_uid, member.getName(), category, title, content, img1, 0, 0, regdate);
 		
-		result = reviewService.writeReview(member_uid, review);
+		result = reviewService.writeReview(member_uid, review, request, img1, "");
 		request.setAttribute("result", result);
 	}
 }

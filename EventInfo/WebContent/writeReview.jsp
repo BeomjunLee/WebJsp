@@ -43,7 +43,7 @@
 
         </table>
         <div class ="review_service" align="center">
-          <input type="file" class ="review_button" value="이미지" accept="img/*" ><!-- required multiple onchange="handleFiles(this.files)" -->
+          <input type="file" class ="review_button" value="이미지" name="img" accept="img/*" ><!-- required multiple onchange="handleFiles(this.files)" -->
           <input type="submit" class ="review_button" value="글 올리기"/>
 
         </div>
