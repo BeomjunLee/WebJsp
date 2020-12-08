@@ -8,19 +8,15 @@
 .table_div{
 	width: 70%;
 	height: 100%;
+	margin:0 auto;
 }
 table{
-	
 	margin-top: 30px;
-	
-	border: 1px solid gray;
-	
 }
-td{
+.td1{
+	width:100%;
 	text-align:center;
-	padding: 5px;
-	border:1px solid gray;
-	
+	border:none;
 }
 
 #table_write{
@@ -40,10 +36,21 @@ img:hover{
 	
 }
 #img_table{
-	text-align: left;
+	text-align: center;
 }
 a{
 	float: right;
 	margin: 10px;
 	
+}
+.review_title{
+	width:100%;
+	height:50px;
+	background:#dcdcdc;
+}
+.title1{
+	float:left;
+}
+.title2{
+	float:right;
 }

@@ -10,49 +10,29 @@
 <%
 	Review review = (Review)request.getAttribute("review");
 %> 
- <style>
- 	table{
- 		width
- 	}
- </style>
+
 <div class="wrap" align="center">
   <div class="table_div" align="center">
-  	<table >
-  		<tr>
-  			<th colspan="2" align="center" style="background-color: #eeeeee">리뷰 글 보기</th>
+  	<table style ="border:none;">
+  		<tr class ="review_title">
+  			<td class ="td1" colspan="2">
+  				<span class ="title1"><%=review.getTitle()%></span>
+  				<span class ="title2"><%=review.getWriter() %>&nbsp;&nbsp;<%=review.getRegdate() %></span>
+  			</td>
+  		</tr>
+  		<tr align ="center">
+  			<td class ="td1" id="img_table"><img src="" alt="이미지"></td>
   		</tr>
   		<tr>
-  			<td colspan="2"><%=review.getTitle()%></td>
+  			<td class ="td1" colspan="2"><%=review.getContent() %></td>
   		</tr>
-  		<tr>
-  			
-  			<td colspan="2"><%=review.getWriter() %></td>
-  		</tr>
-  		<tr>
-  			
-  			<td colspan="2"><%=review.getRegdate() %></td>
-  		</tr>
-  		<tr>
-  			<td align="center" colspan="1" style="background-color: #eeeeee">조회수</td>
-  			<td align="center" colspan="1" style="background-color: #eeeeee">추천수</td>
-  		</tr>
-  		<tr>
-  			<td colspan="1"><%=review.getView_count() %></td>
-  			<td colspan="1"><%=review.getRecommend() %></td>
-  		</tr>
-  	
-  		<tr>
-  			<td align="center" colspan="2" style="background-color: #eeeeee">글내용</td>
-  		</tr>
-  		<tr>
-  			<td colspan="2"><%=review.getContent() %></td>
-  		</tr>
+		<tr align="right">
+  			<td class ="td2" >조회수: <%=review.getView_count() %>&nbsp;&nbsp;추천: <%=review.getRecommend() %></td>
+		</tr>
   		<%--<%
   			for(Object img:img){
   		--%>
-  		<tr>
-  			<td id="img_table"><img src="" alt="이미지"></td>
-  		</tr>
+
   		<%-- <%
   			}
   		--%>

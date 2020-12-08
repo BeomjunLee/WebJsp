@@ -4,6 +4,12 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+     font-family: 'NIXGONM-Vb';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
 body,html{
   margin: 0px;
   padding: 0px;
@@ -146,10 +152,9 @@ footer{
 	text-align:center;
 }
 .main_title{
-	
+	font-family: 'NIXGONM-Vb';
 }
 .table_color{
-
 	
 }
 .review_ul{

@@ -15,10 +15,23 @@
           <li><label class="color" for="name">비밀번호 확인</label><input class="sign_box" type="password" name="pw" onchange="checkPassword()"><span id="check"></span></li>
           <li><label class="color" for="name">이름</label><input class="sign_box" type="text" name="name" onchange="checkName()"></li>
           <li><label class="color" for="name">전화번호</label><input class="sign_box" type="text" name="phoneNum" id="tel_input" onchange="checkTel()" placeholder=" '-'없이 적어주세요."></li>
-          <li><label class="color" for="name">나이</label><input class="sign_box" type="text" name="age" onchange="checkAge()"></li>
-          <li><label class="color" for="name">성별</label>
-          <input class="sign_box" style="margin-bottom:20px;" type="radio" name="gender" value="male">남성
-          <input class="sign_box" style="margin-bottom:20px;" type="radio" name="gender" value="female">여성</li>
+          <div class = "container">
+          	<div class = "sub_container">
+       	   		 <li><label class="color" for="name">나이</label><input class="sign_box" type="text" name="age" onchange="checkAge()"></li>
+       	  	</div>
+       	  	<div class = "sub_container"> 
+   	         	<li class= "test"><label class="color" for="name">성별</label>
+   	         	<label style="display:flex">
+   	         		<input class ="check1" type="button" onclick="" value="남자">
+   	         		<input class ="check1" type="button" onclick="" value="여자">
+   	         	</label>
+           	 		<!--  라디오 박스 방식
+           	 		<input class="sign_box" style="margin-bottom:20px;" type="radio" name="gender" value="male">남성
+         	 		<input class="sign_box" style="margin-bottom:20px;" type="radio" name="gender" value="female">여성
+         	 		-->
+         	 	</li>
+         	 </div>
+          </div>
         </ul>
         
           <input type="hidden" id="idCheck" value="">
