@@ -9,11 +9,13 @@ import javax.servlet.http.HttpSession;
 import com.event.domain.Member;
 import com.event.exception.IdDuplicatedException;
 import com.event.repository.MemberRepository;
+import com.event.security.BCryptPasswordEncoder;
+import com.event.security.PasswordEmail;
 
 public class MemberService {
 
 	MemberRepository memberRepository = MemberRepository.getInstance();
-
+	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	private static MemberService memberService = new MemberService();
 	
 	//싱글톤
@@ -23,13 +25,11 @@ public class MemberService {
 	
 	protected MemberService() {} //new로 객체생성 막기
 	
-//	//회원select
-	
-//	public Member findMember() {
-//		Member member = new Member();
-//		
-//		return member;
-//	}
+	//비밀번호 찾기
+	public String findPwSendEmail(String to) throws Exception {
+		PasswordEmail email = new PasswordEmail();
+		return email.sendEmail(to);
+	}
 	
 	//로그인 체크
 	public int checkLogin(String id, String pw, HttpServletRequest request) throws SQLException{
@@ -38,7 +38,7 @@ public class MemberService {
 			System.out.println("Member 전달성공");
 			
 			if(member == null) return 2;
-			else if(member.getId().equals(id) && member.getPw().equals(pw)) {
+			else if(member.getId().equals(id) && passwordEncoder.matches(pw, member.getPw())) {
 				result = 1;
 				HttpSession session = request.getSession();
 				session.setAttribute("session", member.getMember_uid());
@@ -82,6 +82,16 @@ public class MemberService {
 	public Member findMember(Long member_uid) {
 		try {
 			return memberRepository.findByUid(member_uid);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	//회원정보 아이디로 찾
+	public Member findMemberById(String id) {
+		try {
+			return memberRepository.findById(id);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;

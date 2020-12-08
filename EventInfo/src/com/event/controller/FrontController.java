@@ -61,6 +61,20 @@ public class FrontController extends HttpServlet {
 			command.excute(request, response);
 			viewPage = "logout.jsp";
 			break;
+		case "/findId.do":
+			viewPage = "findId.jsp";
+			break;
+		case "/findPw.do":
+			viewPage = "findPw.jsp";
+			break;
+		case "/sendEmailOk.do":
+			command = new sendEmailCommand();
+			command.excute(request, response);
+			viewPage = "sendEmailOk.jsp";
+			break;
+		case "/inputPwCode.do":
+			viewPage = "inputPwCode.jsp";
+			break;
 		case "/signUp.do":
 			viewPage = "signUp.jsp";
 			break;

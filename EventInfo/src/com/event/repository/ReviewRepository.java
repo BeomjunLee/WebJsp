@@ -61,8 +61,7 @@ public class ReviewRepository {
 		);
 		return review;
 	}
-	
-	
+		
 	//insert
 	public int save(Review review) throws SQLException{
 		int result = 0;
