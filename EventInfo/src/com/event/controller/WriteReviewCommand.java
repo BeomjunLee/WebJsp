@@ -29,7 +29,7 @@ public class WriteReviewCommand implements Command{
 		String category = request.getParameter("category");
 		String img1 = request.getParameter("img1");
 		String regdate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-		
+			
 		//멤버 찾기(이름)
 		Member member = memberService.findMember(member_uid);
 		
