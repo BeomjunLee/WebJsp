@@ -9,7 +9,7 @@
 <jsp:include page="fragment/header.jsp" flush="false" />
 
 
-	<div style="width:100%;height:5%;background-color:#fdf4f4;"></div>
+	<div style="width:100%;height:8px;;background-color:#fdf4f4;"></div>
 <div style="background-color:#fdf4f4;">
 	<div class="mP_wrap">
 		<div class="mP_container">
@@ -48,27 +48,27 @@
 		<table style=" font-family: 'IBMPlexSansKR-Regular'; width:100%; font-size:0.9em;color:#000000;">
            <thead>
                <tr>
-                  <th style="width:15%;">추천수</th>
+                  <th style="width:10%;">추천수</th>
                   <th style="width:45%;">제목</th>
                   <th style="width:15%;">작성자</th>
-                  <th style="width:15%;">작성일</th>
+                  <th style="width:20%;">작성일</th>
                   <th style="width:10%;">조회수</th>
                </tr>
             </thead>
             <tbody>
             	<tr>
-				  <td align =center>0</td>
-                  <td align =center>와우</td>
-                  <td align =center>김찬호</td>
-                  <td align =center>2020-12-09</td>
-                  <td align =center>1</td>
+				  <th align =center>0</th>
+                  <th align =center>와우</th>
+                  <th align =center>김찬호</th>
+                  <th align =center>2020-12-09</th>
+                  <th align =center>1</th>
             	</tr>	
             </tbody>
 			</table>
 		</div>
 	</div>
 </div>
-<div style="width:100%; height:5%; background-color:#fdf4f4; box-shadow:5px 5px #eeeeee;"></div>
+<div style="width:100%; height:10%; background-color:#fdf4f4; box-shadow:5px 5px #eeeeee;"></div>
 </body>
 <jsp:include page="fragment/footer.jsp" flush="false" />
 </html>

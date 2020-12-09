@@ -26,7 +26,7 @@
     <div class="container">
       <div class = "row">
       	<div class = "sub_container">
-      		<span style= "font-family: 'NIXGONM-Vb'; font-size:1.7em;" class = "main_title">리뷰 게시판</span>
+      		<span style= "font-family: 'NIXGONM-Vb'; font-size:1.7em; font-weight:bold;" class="main_title">리뷰 게시판</span>
       	</div>
       <select class="review_select" name="rivew_sel">
         <option value="all">모두보기</option>
@@ -38,11 +38,11 @@
          <table style ="font-family: 'IBMPlexSansKR-Regular';" class="table-striped">
             <thead>
                <tr>
-                  <th class = "table_color" >추천수</th>
-                  <th class = "table_color" >제목</th>
-                  <th class = "table_color" >작성자</th>
-                  <th class = "table_color" >작성일</th>
-                  <th class = "table_color" >조회수</th>
+                  <th class = "table_color" style="width:10%;" >추천수</th>
+                  <th class = "table_color" style="width:45%;" >제목</th>
+                  <th class = "table_color" style="width:15%;" >작성자</th>
+                  <th class = "table_color" style="width:20%;" >작성일</th>
+                  <th class = "table_color" style="width:10%;" >조회수</th>
                </tr>
             </thead>
             <tbody>

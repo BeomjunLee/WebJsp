@@ -20,7 +20,7 @@
   </div>
   <div class = "m_container2">
   	<div class = "s_container1">
-  	<span class = "m_title">눈담화란?</span><br>
+  	<span id="detail" class = "m_title">눈담화란?</span><br>
   	눈 담화는 사랑하는 사람에게 선물을 준비할 수 있도록 도와주기 위해 만든 웹페이지입니다.<br>
   	</div>
   	<div class = "line">
