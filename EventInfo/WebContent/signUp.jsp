@@ -18,14 +18,14 @@
           <li><label class="color" for="name">전화번호</label><input class="sign_box" type="text" name="phoneNum" id="tel_input" onchange="checkTel()" placeholder=" '-'없이 적어주세요."></li>
           <li><input class ="check" type="button" onclick="openDaumPostcode()" value="주소검색"></li>
           <li><label class="color1" for="name">우편번호</label>
-          	<div style="display:flex; width:100%;">
-          		<div style="width:20%;margin-right:3px;">
-          			<input class="sign_box" type="text" class="signupForm" id="postcode" size="10">
-          		</div>
-          		<div style="width:80%;margin-left:3px;">	
-          			<label class="color2" for="name"></label><input class="sign_box" type="text" id="extraAddress" name="addressB" size="20">
-          		</div>
-          	</div>
+             <div style="display:flex; width:100%;">
+                <div style="width:20%;margin-right:3px;">
+                   <input class="sign_box" type="text" class="signupForm" id="postcode" size="10">
+                </div>
+                <div style="width:80%;margin-left:3px;">   
+                   <label class="color2" for="name"></label><input class="sign_box" type="text" id="extraAddress" name="addressB" size="20">
+                </div>
+             </div>
           </li>
           <li><label class="color" for="name">도로명주소</label><input class="sign_box" type="text" id="address" name="addressA" size="30"></li>
           <li><label class="color" for="name">상세주소</label><input class="sign_box" type="text" id="detailAddress" name="addressC" size="56"></li>
@@ -48,7 +48,7 @@
              </div>
           </div>
         </ul>
-        
+          <input type="hidden" id="test" name = "test" value="0">
           <input type="hidden" id="idCheck" value="">
         <div class="join">
           <button type="submit">회원가입</button>
@@ -62,9 +62,19 @@
 
 /* 회원가입 눌렀을시 한번 더 체크 하는 구간.*/
  var count = 0; //성별 체킹 카운트.
- 
+ var id_SameCheck;
 function checkAll() {
+   var id = form.id.value;
+   var test = form.test.value;
+   if(id_SameCheck != id){
+      alert("아이디를 다시 중복체크 해주세요.");
+      return false;
+   }
    
+   if(test != 1){
+      alert("아이디 중복체크를 다시해주세요.");
+      return false;
+   }
         if (!checkUserId_ALL()) {
            alert("회원가입 실패 다시 작성해주세요.(아이디)");
             return false;
@@ -89,38 +99,39 @@ function checkAll() {
             return false;
         }
         count = 0;
+        id_SameCheck = "";
         return true;
         
     }
     
 
 function checkSex_ALL_M(){//성별 체크.
-	   
-	   count ++;
-	   document.getElementById("hiddenGender").value = form.gender_m.value;
-	   
-	   if(count > 3){
-	      count = 2;
-	   }
-	   if(count < 2 ) {
-	      return false;
-	   }else
-	      return true;
-	}
+      
+      count ++;
+      document.getElementById("hiddenGender").value = form.gender_m.value;
+      
+      if(count > 3){
+         count = 2;
+      }
+      if(count < 2 ) {
+         return false;
+      }else
+         return true;
+   }
 
-	function checkSex_ALL_W(){//성별 체크.
-	   
-	   count ++;
-	   document.getElementById("hiddenGender").value = form.gender_w.value;
-	   
-	   if(count > 3){
-	      count = 2;
-	   }
-	   if(count < 2 ) {
-	      return false;
-	   }else
-	      return true;
-	}
+   function checkSex_ALL_W(){//성별 체크.
+      
+      count ++;
+      document.getElementById("hiddenGender").value = form.gender_w.value;
+      
+      if(count > 3){
+         count = 2;
+      }
+      if(count < 2 ) {
+         return false;
+      }else
+         return true;
+   }
 
  
     
@@ -298,6 +309,8 @@ function idDuplicated(){
            url = "idDuplicated.do?id=" + document.getElementById('id').value;
            window.open(url, "ID중복체크",
                  "width=200, height=120, toolbar=no, location=no status=no, menubar=no, scrollbars=no, resizable=no, left=1000, top=300");
+           id_SameCheck = form.id.value;
+           
 }
 
 

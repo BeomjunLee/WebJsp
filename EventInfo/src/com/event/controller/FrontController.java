@@ -110,6 +110,21 @@ public class FrontController extends HttpServlet {
 			command.excute(request, response);
 			viewPage = "review.jsp";
 			break;
+		case "/reviewMen.do":
+			command = new ReviewMenCommand();
+			command.excute(request, response);
+			viewPage = "reviewMen.jsp";
+			break;
+		case "/reviewWomen.do":
+			command = new ReviewWomenCommand();
+			command.excute(request, response);
+			viewPage = "reviewWomen.jsp";
+			break;
+		case "/reviewParent.do":
+			command = new ReviewParentCommand();
+			command.excute(request, response);
+			viewPage = "reviewParent.jsp";
+			break;
 		case "/readReview.do":
 			command = new ReadReviewCommand();
 			command.excute(request, response);
@@ -132,6 +147,11 @@ public class FrontController extends HttpServlet {
 			command = new UpdateReviewOkCommand();
 			command.excute(request, response);
 			viewPage = "updateReviewOk.jsp";
+			break;
+		case "/deleteReview.do":
+			command = new DeleteReviewCommand();
+			command.excute(request, response);
+			viewPage = "deleteReview.jsp";
 			break;
 		case "/myPage.do":
 			command = new MyPageCommand();

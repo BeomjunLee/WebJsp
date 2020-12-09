@@ -32,6 +32,7 @@ if(result == 1){%>
 function idConfirm(){
 	var id = "<%=id %>";
 	opener.document.getElementById("idCheck").value = id;
+	opener.document.getElementById("test").value = 1;
 	window.close();
 }
 </script>
