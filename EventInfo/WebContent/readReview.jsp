@@ -27,7 +27,7 @@
   		</tr>
   		<tr align ="center">
 
-  			 <td style="width:100%;" id="img_table"><img src="upload/<%=review.getImg()%>" onerror="this.style.display='none'" alt=" "></td>
+  			 <td style="width:100%; height:auto;" id="img_table"><img src="upload/<%=review.getImg()%>" onerror="this.style.display='none'" alt=" "></td>
 
   		</tr>
   		<tr>

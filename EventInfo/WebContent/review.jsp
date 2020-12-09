@@ -28,12 +28,12 @@
       	<div class = "sub_container">
       		<span style= "font-family: 'NIXGONM-Vb'; font-size:1.7em; font-weight:bold;" class="main_title">리뷰 게시판</span>
       	</div>
-      <select class="review_select" name="rivew_sel">
-        <option value="all">모두보기</option>
-        <option value="men">남자친구를 위한</option>
-        <option value="women">여자친구를 위한</option>
-        <option value="parents">부모님을 위한</option>
-      </select>
+		<div style="width:100%; margin-bottom:20px;display:flex;">
+			<input class = "button1" type="button" value="전체 보기" onclick="">
+			<input class = "button1" type="button" value="남자" onclick="">
+			<input class = "button1" type="button" value="여자" onclick="">
+			<input class = "button1" type="button" value="부모님" onclick="">
+		</div>
 	 
          <table style ="font-family: 'IBMPlexSansKR-Regular';" class="table-striped">
             <thead>

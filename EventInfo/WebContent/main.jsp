@@ -10,7 +10,9 @@
       <pre>더 이상 오지 않을
 특별한 날에
 <span style ="font-size:0.8em";>당신의 마음을 전하세요</span>
-<input class ="main_button" type = button value="자세히보기"onclick=""/>
+<div><a href="#detail" class ="main_button2">자세히보기</a></div>
+<!-- <input class ="main_button" type = button value="자세히보기"onclick=""/> -->
+
 </pre>
       <video src="front/video/winter.mp4" autoplay loop muted >video</video>
 
@@ -20,19 +22,19 @@
   </div>
   <div class = "m_container2">
   	<div class = "s_container1">
-  	<span id="detail" class = "m_title">눈담화란?</span><br>
+  	<span  class = "m_title">눈담화란?</span><br>
   	눈 담화는 사랑하는 사람에게 선물을 준비할 수 있도록 도와주기 위해 만든 웹페이지입니다.<br>
   	</div>
   	<div class = "line">
   	</div>
   	<div class = "s_container2">
-  		<img src="front/img/main_img01.png">
+  		<img id="detail" src="front/img/main/main_img01.png">
   	</div>
   </div>
   
     <div class = "m_container2">
   	<div class = "s_container2">
-		<img src="front/img/main_img02_1.jpg">
+		<img src="front/img/main/main_img02_1.jpg">
   	</div>
   	<div class = "line">
   	</div>
@@ -54,7 +56,7 @@
   	<div class = "line">
   	</div>
   	<div class = "s_container2">
-  		<img src="front/img/main_img03_1.jpg">
+  		<img src="front/img/main/main_img03_1.jpg">
   	</div>
   </div>
   

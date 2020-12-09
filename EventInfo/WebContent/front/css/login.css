@@ -268,5 +268,11 @@ button{
   margin-top:20px;
   text-align: center;
 
-
+}
+.signup{
+	font-family: 'NIXGONM-Vb';
+	font-weight: bold;
+	font-size:0.9em;
+	color:black;	
+	margin:5px;
 }

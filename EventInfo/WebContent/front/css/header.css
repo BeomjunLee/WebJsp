@@ -46,9 +46,10 @@ a{
   color:black;
 }
 .main_title{
+	display:flex;
 	font-family: 'TmoneyRoundWindExtraBold';
 	font-size:1.3em;
-	color:black;
+	color:grey;
 }
 
 li{
@@ -109,7 +110,6 @@ footer{
 
 
 .menu{
-
   display: flex;
   justify-content: center;
   background: #fff;
@@ -121,20 +121,8 @@ footer{
   opacity: 0.7;
   height:20%;
   font-size: 1.3em;
-
-
 }
-.main_button{
-	margin-top:10px;
-	font-family: 'GmarketSansMedium';
-	width:150px;
-	height:40px;
-	border:0;
-	border-radius:7px;
-	background-color:#ff7276;
-	color:white;
-	font-size:0.5em;
-}
+
 .menu.show{
 
   right:0;
@@ -269,4 +257,41 @@ footer>pre{
 }
 .m_p1{
 	font-size:1.6em;
+}
+.main_button2{
+	display:block;
+	text-align:center;
+	font-family: 'GmarketSansMedium';
+	padding-top:7px;
+	width:125px;
+	height:30px;
+	border:0;
+	border-radius:7px;
+	background-color:#ff7276;
+	color:white;
+	font-size:0.45em;
+	position: relative; 
+	z-index: 999999;
+}
+.main_button2:hover{
+	display:block;
+	text-align:center;
+	font-family: 'GmarketSansMedium';
+	padding-top:7px;
+	width:125px;
+	height:30px;
+	border:0;
+	border-radius:7px;
+	background-color:#ff393f;
+	color:white;
+	font-size:0.45em;
+}
+.m1{
+	color:#c6c6c6;
+}
+.m2{
+	color:#ff393f;
+}
+.m3{
+	color:#ff393f;
 }

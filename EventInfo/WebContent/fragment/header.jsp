@@ -19,7 +19,10 @@
 
     <nav class = "title">
       <div class="navbar">
-        <a href="main.do" class = "main_title">눈담화</a>
+        <a href="main.do" class = "main_title">
+        <span class="m1">눈</span>
+        <span class="m2">담</span>
+        <span class="m3">화</span></a>
       </div>
 
 <%
@@ -53,14 +56,14 @@
       </ul>
 
       <ul class="menu_women">
-        <li><a href="page2.html">여자친구를 위한 EVENT</a></li>
+        <li><a href="event2.do">여자친구를 위한 EVENT</a></li>
         <!-- <li><a href="#">메뉴1</a></li>
         <li><a href="#">메뉴2</a></li>
         <li><a href="#">메뉴3</a></li> -->
       </ul>
 
       <ul class="menu_parents">
-        <li><a href="page3.html">부모님을 위한 EVENT</a></li>
+        <li><a href="event3.do">부모님을 위한 EVENT</a></li>
         <!-- <li><a href="#">메뉴1</a></li>
         <li><a href="#">메뉴2</a></li>
         <li><a href="#">메뉴3</a></li> -->

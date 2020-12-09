@@ -91,11 +91,13 @@ a{
 }
 .td2{
 	font-family: 'IBMPlexSansKR-Regular';
-	color:#4e4e4e;
+	color:#4e4e4e;	
 }
 .td3{
+	height:50px;
 	font-size:0.8em;
 	color:grey;
+	vertical-align: bottom;
 }
 .button1{
 	font-family: 'GmarketSansMedium';
