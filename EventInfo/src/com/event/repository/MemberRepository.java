@@ -52,6 +52,7 @@ public class MemberRepository {
 				rs.getString("name"),
 				rs.getString("email"),
 				rs.getString("phoneNum"),
+				rs.getString("address"),
 				rs.getInt("age"),
 				rs.getString("gender")
 		);
@@ -64,14 +65,15 @@ public class MemberRepository {
 		int result = 0;
 		try {
 			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
-			pstmt = conn.prepareStatement("insert into member values(member_seq.nextval, ?, ?, ?, ?, ?, ?, ?)");
+			pstmt = conn.prepareStatement("insert into member values(member_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?)");
 			pstmt.setString(1, member.getId());
 			pstmt.setString(2,  member.getPw());
 			pstmt.setString(3, member.getName());
 			pstmt.setString(4, member.getEmail());
 			pstmt.setString(5, member.getPhoneNum());
-			pstmt.setInt(6, member.getAge());
-			pstmt.setString(7, member.getGender());
+			pstmt.setString(6, member.getAddress());
+			pstmt.setInt(7, member.getAge());
+			pstmt.setString(8, member.getGender());
 			result = pstmt.executeUpdate();
 			System.out.println(member.toString()); //회원 로그
 		}finally {
@@ -122,6 +124,25 @@ public class MemberRepository {
 			pstmt = conn.prepareStatement("update member set pw = ? where id = ?");
 			pstmt.setString(1, pw);
 			pstmt.setString(2, id);
+			result = pstmt.executeUpdate();
+		}finally {
+			close();
+		}
+		return result;
+	}
+	
+	//update 회원
+	public int update(Member member) throws SQLException{
+		int result = 0;
+		try {
+			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+			pstmt = conn.prepareStatement("update member set name = ?, email = ?, phonenum = ?, address = ?, age = ? where member_uid = ?");
+			pstmt.setString(1, member.getName());
+			pstmt.setString(2, member.getEmail());
+			pstmt.setString(3, member.getPhoneNum());
+			pstmt.setString(4, member.getAddress());
+			pstmt.setInt(5, member.getAge());
+			pstmt.setLong(6, member.getMember_uid());
 			result = pstmt.executeUpdate();
 		}finally {
 			close();

@@ -15,7 +15,7 @@
 	List<Review> reviews = null;
 	reviews = (List<Review>)request.getAttribute("reviews");
 	Pagination pagination = (Pagination)request.getAttribute("pagination");
-//세션 체크
+	//세션 체크
 	String uid = "";
 	if(session.getAttribute("session")!= null){
 		uid = session.getAttribute("session").toString();
@@ -38,7 +38,7 @@
          <table style ="font-family: 'IBMPlexSansKR-Regular';" class="table-striped">
             <thead>
                <tr>
-                  <th class = "table_color" style="width:10%;" >추천수</th>
+                  <th class = "table_color" style="width:10%;" >카테고리</th>
                   <th class = "table_color" style="width:45%;" >제목</th>
                   <th class = "table_color" style="width:15%;" >작성자</th>
                   <th class = "table_color" style="width:20%;" >작성일</th>
@@ -48,7 +48,7 @@
             <tbody>
      		 <%for(Review review : reviews) {%>
                <tr>
-                  <td><%=review.getRecommend() %></td>
+                  <td><%=review.getCategory()%></td>
                   <td><a href="readReview.do?uid=<%=review.getReview_uid()%>&page=<%=pagination.getPage()%>"><%=review.getTitle() %></a></td>
                   <td><%=review.getWriter() %></td>
                   <td><%=review.getRegdate() %></td>

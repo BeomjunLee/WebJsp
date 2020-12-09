@@ -16,15 +16,21 @@
           <li><label class="color" for="name">이름</label><input class="sign_box" type="text" name="name" onchange="checkName()"></li>
           <li><label class="color" for="name">이메일</label><input class="sign_box" type="text" name="email" onchange="checkMail()"></li>
           <li><label class="color" for="name">전화번호</label><input class="sign_box" type="text" name="phoneNum" id="tel_input" onchange="checkTel()" placeholder=" '-'없이 적어주세요."></li>
+          <li><input class ="check" type="button" onclick="openDaumPostcode()" value="주소검색"></li>
+          <li><label class="color" for="name">우편번호</label><input class="sign_box" type="text" class="signupForm" id="postcode" size="10"></li>
+          <li><label class="color" for="name"></label><input class="sign_box" type="text" id="extraAddress" name="addressB" size="20"></li>
+          <li><label class="color" for="name">도로명주소</label><input class="sign_box" type="text" id="address" name="addressA" size="30"></li>
+          <li><label class="color" for="name">상세주소</label><input class="sign_box" type="text" id="detailAddress" name="addressC" size="56"></li>
           <div class = "container">
              <div class = "sub_container">
                     <li><label class="color" for="name">나이</label><input class="sign_box" type="text" name="age" onchange="checkAge()"></li>
                </div>
                <div class = "sub_container"> 
                   <li class= "test"><label class="color" for="name">성별</label>
-                  <label style="display:flex">
-                     <input class ="check1" type="button"   onclick="checkSex_ALL()" name="gender" value="남자">
-                     <input class ="check1" type="button"   onclick="checkSex_ALL()" name="gender" value="여자">
+                       <label style="display:flex">
+                     <input class ="check1" type="button" onclick="checkSex_ALL_M()" name="gender_m" value="남자"> 
+                     <input class ="check1" type="button" onclick="checkSex_ALL_W()" name="gender_w" value="여자"> 
+                     <input type="hidden" id="hiddenGender" name="gender">
                   </label>
                      <!--  라디오 박스 방식
                      <input class="sign_box" style="margin-bottom:20px;" type="radio" name="gender" value="male">남성
@@ -43,8 +49,8 @@
     </section>
 
 </body>
-<script>
 
+<script>
 
 /* 회원가입 눌렀을시 한번 더 체크 하는 구간.*/
  var count = 0; //성별 체킹 카운트.
@@ -74,27 +80,41 @@ function checkAll() {
            alert("회원가입 실패 다시 작성해주세요.(나이)");
             return false;
         }
-        alert("회원가입 성공");
         count = 0;
         return true;
         
     }
     
 
-function checkSex_ALL(){//성별 체크.
-   
-   count ++;
-   
-   if(count > 3){
-      count = 2;
-   }
-    
-   if(count < 2 ) {
-      return false;
-   }else
-      return true;
-}
-    
+function checkSex_ALL_M(){//성별 체크.
+	   
+	   count ++;
+	   document.getElementById("hiddenGender").value = form.gender_m.value;
+	   
+	   if(count > 3){
+	      count = 2;
+	   }
+	   if(count < 2 ) {
+	      return false;
+	   }else
+	      return true;
+	}
+
+	function checkSex_ALL_W(){//성별 체크.
+	   
+	   count ++;
+	   document.getElementById("hiddenGender").value = form.gender_w.value;
+	   
+	   if(count > 3){
+	      count = 2;
+	   }
+	   if(count < 2 ) {
+	      return false;
+	   }else
+	      return true;
+	}
+
+ 
     
 function checkExistData_ALL(value) {// 공백체크
     if (value == "") {
@@ -267,23 +287,9 @@ function checkExistData(value, dataName) {// 공백체크
 }
 
 function idDuplicated(){
-   
-   //Id가 입력되었는지 확인하기
-        var id = form.id.value;
-        if (!checkExistData(id, "아이디를"))
-            return false;
- 
-        var idRegExp = /^[a-zA-z0-9]{4,12}$/; //아이디 유효성 검사
-        if (!idRegExp.test(id)) {
-            alert("아이디는 영문 대소문자와 숫자로만 4~12자리로 입력해야합니다!");
-            form.id.value = "";
-            form.id.focus();
-            return false;
-        }else{
            url = "idDuplicated.do?id=" + document.getElementById('id').value;
            window.open(url, "ID중복체크",
                  "width=200, height=120, toolbar=no, location=no status=no, menubar=no, scrollbars=no, resizable=no, left=1000, top=300");
-        }
 }
 
 
@@ -304,7 +310,6 @@ function idDuplicated(){
             form.id.focus();
             return false;
         }
-        alert("사용가능한 아이디입니다.");
         return true; //확인이 완료되었을 때
     }
    
@@ -420,8 +425,45 @@ function idDuplicated(){
         }
       
     }
-   
-
 </script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    //주소 api
+    function openDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+
+                var addr = '';
+                var extraAddr = '';
+                if (data.userSelectedType === 'R') {
+                    addr = data.roadAddress;
+                } else {
+                    addr = data.jibunAddress;
+                }
+
+                if(data.userSelectedType === 'R'){
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드로
+                    document.getElementById("extraAddress").value = extraAddr;
+                } else {
+                    document.getElementById("extraAddress").value = '';
+                }
+                // 우편번호와 주소 정보를 해당 필드
+                document.getElementById('postcode').value = data.zonecode;
+                document.getElementById("address").value = addr;
+                // 커서를 상세주소로
+                document.getElementById("detailAddress").focus();
+            }
+        }).open();
+    }
+</script> <!-- 주소 API -->
 <jsp:include page="fragment/footer.jsp" flush="false"/>
 </html>

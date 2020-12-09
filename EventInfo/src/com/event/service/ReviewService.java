@@ -101,4 +101,15 @@ public class ReviewService {
 			return 0;
 		}
 	}
+	
+	
+	//내가 쓴 글 보기
+	public List<Review> findByMemberUid(Long member_uid, int startIndex, int endIndex){
+		try {
+			return reviewRepository.findByMember_uid(member_uid, startIndex, endIndex);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }	

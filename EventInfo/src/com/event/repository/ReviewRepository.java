@@ -103,11 +103,16 @@ public class ReviewRepository {
 		}
 	
 	//select by category
-	public List<Review> findByCategory(String category) throws SQLException{
+	public List<Review> findByCategory(String category, int startIndex, int endIndex) throws SQLException{
 		List<Review> reviews = new ArrayList<>();
 		try {
 			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
-			pstmt = conn.prepareStatement("select * from review where category = ?");
+			pstmt = conn.prepareStatement("select * from " + 
+					"(select rownum as rnum, t.* from (select * from review where category = ? order by review_uid desc) t) " + 
+					"where rnum >= ? and rnum <= ?");
+			pstmt.setString(1, category);
+			pstmt.setInt(2, startIndex);
+			pstmt.setInt(3, endIndex);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				reviews.add(createReview(rs));
@@ -201,4 +206,26 @@ public class ReviewRepository {
 		}
 		return result;
 	}
+	
+	//select by member_uid
+		public List<Review> findByMember_uid(Long member_uid, int startIndex, int endIndex) throws SQLException{
+			List<Review> reviews = new ArrayList<>();
+			try {
+				conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+				//pstmt = conn.prepareStatement("select * from review order by review_uid desc OFFSET ? ROWS FETCH FIRST ? ROWS ONLY");
+				pstmt = conn.prepareStatement("select * from " + 
+						"(select rownum as rnum, t.* from (select * from review where member_uid = ? order by review_uid desc) t) " + 
+						"where rnum >= ? and rnum <= ?");
+				pstmt.setLong(1, member_uid);
+				pstmt.setInt(2, startIndex);
+				pstmt.setInt(3, endIndex);
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					reviews.add(createReview(rs));
+				}
+			}finally {
+				close();
+			}
+			return reviews;
+		}
 }

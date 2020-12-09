@@ -119,4 +119,15 @@ public class MemberService {
 			return null;
 		}
 	}
+	
+	//회원정보 수정
+	public int updateMember(Member member) {
+		int result = 0;
+		try {
+			return memberRepository.update(member);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return result;
+		}
+	}
 }
