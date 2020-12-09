@@ -22,6 +22,11 @@ public class SignUpCommand implements Command{
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String phoneNum = request.getParameter("phoneNum");
+		String address = ""; 
+		String addressA = request.getParameter("addressA");
+		String addressB = request.getParameter("addressB");
+		String addressC = request.getParameter("addressC");
+		address = addressA + " " + addressB + " " + addressC;
 		String age2 = request.getParameter("age");
 		int age;
 		if(age2 == null) age = 0;
@@ -32,7 +37,7 @@ public class SignUpCommand implements Command{
 		String encodePw = passwordEncoder.encode(pw);
 		System.out.println("pw ¾ÏÈ£È­ : " + encodePw);
 		
-		Member member = new Member(member_uid, id, encodePw, name, email, phoneNum, age, gender);
+		Member member = new Member(member_uid, id, encodePw, name, email, phoneNum, address, age, gender);
 		int result = memberService.signUp(member);
 		request.setAttribute("result", result);
 	}

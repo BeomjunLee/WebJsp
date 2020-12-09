@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.event.domain.Review;
 import com.event.service.ReviewService;
 
-public class ReadReviewCommand implements Command{
+public class UpdateReviewCommand implements Command{
 
 	ReviewService reviewService = ReviewService.getInstance(); 
 	
@@ -14,11 +14,10 @@ public class ReadReviewCommand implements Command{
 	public void excute(HttpServletRequest request, HttpServletResponse response) {
 		//리뷰 uid 받기
 		Long review_uid = Long.parseLong(String.valueOf(request.getParameter("uid")));
-		//조회수 증가
-		reviewService.updateViewCount(review_uid);
 		
 		Review review = reviewService.findByUid(review_uid);
 		
+		request.setAttribute("review_uid", review_uid);
 		request.setAttribute("review", review);
 	}
 }

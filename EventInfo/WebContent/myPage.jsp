@@ -1,3 +1,7 @@
+<%@page import="com.event.domain.Pagination"%>
+<%@page import="com.event.domain.Review"%>
+<%@page import="java.util.List"%>
+<%@page import="com.event.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,7 +11,13 @@
 <title>눈담화</title>
 <link rel="stylesheet" href="front/css/myPage.css">
 <jsp:include page="fragment/header.jsp" flush="false" />
+<%
+	Member member = (Member)request.getAttribute("member");
 
+	List<Review> reviews = null;
+	reviews = (List<Review>)request.getAttribute("reviews");
+	Pagination pagination = (Pagination)request.getAttribute("pagination");
+%>
 
 	<div style="width:100%;height:8px;;background-color:#fdf4f4;"></div>
 <div style="background-color:#fdf4f4;">
@@ -18,28 +28,34 @@
 			<div style="display:flex;">
 				<div class="mP_sub_container">
 					<div class="mP_info">
-						<span>아이디</span><span>cksgh2064</span>
+						<span>아이디</span><span><%=member.getId() %></span>
 					</div>
 					<div class="mP_info">
-						<span>이름</span><span>김찬호</span>
+						<span>이름</span><span><%=member.getName() %></span>
 					</div>
 					<div class="mP_info">
-						<span>이메일</span><span>cksgh2064@naver.com</span>
+						<span>이메일</span><span><%=member.getEmail() %></span>
 					</div>
 				</div>
 	
 				<div class="mP_sub_container">
 					<div class="mP_info">
-						<span>나이</span><span>25</span>
+						<span>나이</span><span><%=member.getAge() %></span>
 					</div>
 					<div class="mP_info">
-						<span>성별</span><span>남자</span>
+						<span>성별</span><span><%=member.getGender()%></span>
 					</div>
 					<div class="mP_info">
-						<span>전화번호</span><span style="width:200px;">010-3936-2064</span>
+						<span>전화번호</span><span style="width:200px;"><%=member.getPhoneNum() %></span>
+					</div>
+						<div class="mP_info">
+						<span>주소</span><span style="width:200px;"><%=member.getAddress() %></span>
 					</div>
 				</div>
 				</div>
+					<div class="mP_info">
+						<input class="button1" type="button"  value="회원 수정" onclick="location.href='updateMyPage.do'">
+					</div>
 			</div>
 
 		<div class="mP_container">
@@ -48,7 +64,7 @@
 		<table style=" font-family: 'IBMPlexSansKR-Regular'; width:100%; font-size:0.9em;color:#000000;">
            <thead>
                <tr>
-                  <th style="width:10%;">추천수</th>
+                  <th style="width:10%;">카테고리</th>
                   <th style="width:45%;">제목</th>
                   <th style="width:15%;">작성자</th>
                   <th style="width:20%;">작성일</th>
@@ -56,15 +72,39 @@
                </tr>
             </thead>
             <tbody>
-            	<tr>
-				  <th align =center>0</th>
-                  <th align =center>와우</th>
-                  <th align =center>김찬호</th>
-                  <th align =center>2020-12-09</th>
-                  <th align =center>1</th>
-            	</tr>	
+          <%for(Review review : reviews) {%>
+               <tr>
+                  <td><%=review.getCategory()%></td>
+                  <td><a href="readReview.do?uid=<%=review.getReview_uid()%>&page=<%=pagination.getPage()%>"><%=review.getTitle() %></a></td>
+                  <td><%=review.getWriter() %></td>
+                  <td><%=review.getRegdate() %></td>
+                  <td><%=review.getView_count() %></td>
+               </tr>
+            <%} %> 
             </tbody>
 			</table>
+   <div align="center">
+        <%if(pagination.getTotalListCnt() != 0){
+           	if(pagination.getPage() != 1){%>
+                <a href="myPage.do?page=1">처음으로</a>
+                <%}
+            if(pagination.getPage() > pagination.getPageSize()){ %>    
+            	<a href="myPage.do?page=<%=pagination.getPreBlock()%>">&laquo;</a>
+       		<%}
+        }%>
+        <%
+        	for(int i=pagination.getStartPage(); i <= pagination.getEndPage(); i++) {%>
+        		<a href="myPage.do?page=<%=i%>"><%=i%></a>
+        <%} 
+        	if(pagination.getTotalListCnt() != 0){
+            if(pagination.getStartPage() + pagination.getBlockSize() - 1 < pagination.getTotalPageCnt()){%>
+                <a href="myPage.do?page=<%=pagination.getNextBlock()%>">&raquo;</a>
+            <%}
+         	  if(pagination.getPage() != pagination.getTotalPageCnt()){%>
+                <a href="myPage.do?page=<%=pagination.getTotalPageCnt()%>">마지막으로</a>
+            <%} 
+      	}%>
+    </div>
 		</div>
 	</div>
 </div>

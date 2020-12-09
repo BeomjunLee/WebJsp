@@ -7,11 +7,20 @@
 <link rel="stylesheet" href="front/css/readReview.css">
 <title>눈담화</title>
 <jsp:include page="fragment/header.jsp" flush="false"/>
-
-<body>
-
 <%
+	//Review 객체 받기
 	Review review = (Review)request.getAttribute("review");
+
+	//전 페이징 페이지 수
+	int nowPage = Integer.parseInt(request.getParameter("page"));
+	
+	//세션 체크
+	Long uid = 0L;
+	if(session.getAttribute("session") != null){
+		uid = Long.parseLong(session.getAttribute("session").toString());
+	}
+	String review_uid = request.getParameter("uid");
+	
 %> 
 
 <div class="wrap" align="center">
@@ -34,7 +43,7 @@
   			<td class ="td2"colspan="2"><%=review.getContent() %></td>
   		</tr>
 		<tr align="right">
-  			<td class ="td3" >조회수: <%=review.getView_count() %>&nbsp;&nbsp;추천: <%=review.getRecommend() %></td>
+  			<td class ="td3" >조회수: <%=review.getView_count() %>&nbsp;&nbsp;</td>
 		</tr>
   		<%--<%
   			for(Object img:img){
@@ -45,11 +54,25 @@
   		--%>
   		</tbody>
   	</table>
-  	<input class = "button1" type="button" value="뒤로 가기" onclick="history.back()">
+  	<input class = "button1" type="button" value="뒤로 가기" onclick="location.replace('review.do?page=<%=nowPage%>')">
+<!-- 글의 회원uid값이랑 세션값이랑 같은지 확인 -->
+<%if(uid == review.getMember_uid()) {%>
+  	<input class = "button1" type="button" value="수정" onclick="location.href='updateReview.do?uid=<%=review_uid%>'">
+  	<input class = "button1" type="button" value="삭제" onclick="deleteBtn()">
+<%} %>
   </div>
   	
   
 </div>
 </body>
+<script>
+	function deleteBtn(){
+		 if(confirm("정말 삭제하시겠습니까??") == true){    //확인
+			 location.href='deleteReview.do?uid=<%=review_uid%>&page=<%=nowPage%>';
+			}else{   //취소
+			    return;
+		}
+	}
+</script>
 <jsp:include page="fragment/footer.jsp" flush="false"/>
 </html>

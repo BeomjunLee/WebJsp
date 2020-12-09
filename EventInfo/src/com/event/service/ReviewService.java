@@ -32,39 +32,47 @@ public class ReviewService {
 	public int writeReview(Long member_uid, Review review) {
 		int result = 0;
 		try {
-			result = reviewRepository.save(review);
-			
+			return reviewRepository.save(review);
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return result;
 		}
-		
-		return result;
 	}
 	
-	//파일 업로드
-	public void uploadFile(HttpServletRequest request, String img) {
-		// request.getRealPath("상대경로") 를 통해 파일을 저장할 절대 경로를 구해온다.
-	    // 운영체제 및 프로젝트가 위치할 환경에 따라 경로가 다르기 때문에 아래처럼 구해오는게 좋음
-	    String uploadPath = request.getRealPath("/front/img");
-	  	System.out.println("절대경로 : " + uploadPath +"<br/>");
-	     
-	    int maxSize =1024 *1024 *10;// 한번에 올릴 수 있는 파일 용량 : 10M로 제한
-	    try{
-	        // request,파일저장경로,용량,인코딩타입,중복파일명에 대한 기본 정책
-	    	MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize,"utf-8",new DefaultFileRenamePolicy());
-	    	
-	    	String fileName = multi.getOriginalFileName("img");//업로드 된 파일이름(중복시 변경됨)
-	    	String fileRealName = multi.getFilesystemName("img");
-	    }catch(Exception e){
-	        e.printStackTrace();
-	    }
-	}
-	//추천 
-	public void recommend(){
-		
+	//리뷰 수정
+	public int updateReview(Review review) {
+		int result = 0;
+		try {
+			return reviewRepository.update(review);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return result;
+		}
 	}
 	
-	//조회수
+	//리뷰 삭제
+	public int deleteReview(Long review_uid, Long member_uid) {
+		int result = 0;
+		try {
+			return reviewRepository.delete(review_uid, member_uid);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return result;
+		}
+	}
+	
+	//조회수 증가
+	public int updateViewCount(Long review_uid) {
+		int result = 0;
+		try {
+			return reviewRepository.updateViewCount(review_uid);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return result;
+		}
+	}
+	
+	
 	//리뷰 보기
 	public Review findByUid(Long review_uid) {
 		try {
@@ -91,6 +99,17 @@ public class ReviewService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return 0;
+		}
+	}
+	
+	
+	//내가 쓴 글 보기
+	public List<Review> findByMemberUid(Long member_uid, int startIndex, int endIndex){
+		try {
+			return reviewRepository.findByMember_uid(member_uid, startIndex, endIndex);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 }	

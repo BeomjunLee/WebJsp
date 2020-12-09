@@ -123,19 +123,31 @@ public class FrontController extends HttpServlet {
 			command.excute(request, response);
 			viewPage = "writeReviewOk.jsp";
 			break;
+		case "/updateReview.do":
+			command = new UpdateReviewCommand();
+			command.excute(request, response);
+			viewPage = "updateReview.jsp";
+			break;
+		case "/updateReviewOk.do":
+			command = new UpdateReviewOkCommand();
+			command.excute(request, response);
+			viewPage = "updateReviewOk.jsp";
+			break;
 		case "/myPage.do":
+			command = new MyPageCommand();
+			command.excute(request, response);
 			viewPage = "myPage.jsp";
 			break;
-		case "/event1.do":
-			command = new Event1Command();
+		case "/updateMyPage.do":
+			command = new UpdateMyPageCommand();
 			command.excute(request, response);
-			viewPage = "event1.jsp";
+			viewPage = "updateMyPage.jsp";
 			break;
-		case "/readEvent1.do":
-			command = new ReadEvent1Command();
+		case "/updateMyPageOk.do":
+			command = new UpdateMyPageOkCommand();
 			command.excute(request, response);
-			viewPage = "readEvent1.jsp";
-			break;	
+			viewPage = "updateMyPageOk.jsp";
+			break;
 		}
 		
 		// response 를 위해서 

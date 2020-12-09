@@ -103,11 +103,16 @@ public class ReviewRepository {
 		}
 	
 	//select by category
-	public List<Review> findByCategory(String category) throws SQLException{
+	public List<Review> findByCategory(String category, int startIndex, int endIndex) throws SQLException{
 		List<Review> reviews = new ArrayList<>();
 		try {
 			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
-			pstmt = conn.prepareStatement("select * from review where category = ?");
+			pstmt = conn.prepareStatement("select * from " + 
+					"(select rownum as rnum, t.* from (select * from review where category = ? order by review_uid desc) t) " + 
+					"where rnum >= ? and rnum <= ?");
+			pstmt.setString(1, category);
+			pstmt.setInt(2, startIndex);
+			pstmt.setInt(3, endIndex);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				reviews.add(createReview(rs));
@@ -140,8 +145,51 @@ public class ReviewRepository {
 	}
 	
 	//update
+	public int updateViewCount(Long review_uid) throws SQLException{
+		int result = 0;
+		try {
+			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+			pstmt = conn.prepareStatement("update review set view_count = view_count + 1 where review_uid = ?");
+			pstmt.setLong(1, review_uid);
+			result = pstmt.executeUpdate();
+		}finally {
+			close();
+		}
+		return result;
+	}
+	
+	//update view_count
+		public int update(Review review) throws SQLException{
+			int result = 0;
+			try {
+				conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+				pstmt = conn.prepareStatement("update review set title = ?, content = ?, img = ?  where review_uid = ? and member_uid = ?");
+				pstmt.setString(1, review.getTitle());
+				pstmt.setString(2, review.getContent());
+				pstmt.setString(3, review.getImg());
+				pstmt.setLong(4, review.getReview_uid());
+				pstmt.setLong(5, review.getMember_uid());
+				result = pstmt.executeUpdate();
+			}finally {
+				close();
+			}
+			return result;
+		}
 	
 	//delete
+	public int delete(Long review_uid, Long member_uid) throws SQLException {
+		int result = 0;
+		try {
+			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+			pstmt = conn.prepareStatement("delete from review where review_uid = ? and member_uid = ?");
+			pstmt.setLong(1, review_uid);
+			pstmt.setLong(2, member_uid);
+			result = pstmt.executeUpdate();
+		}finally {
+			close();
+		}
+		return result;
+	}
 	
 	//select totalListCount
 	public int totalListCount() throws SQLException{
@@ -158,4 +206,26 @@ public class ReviewRepository {
 		}
 		return result;
 	}
+	
+	//select by member_uid
+		public List<Review> findByMember_uid(Long member_uid, int startIndex, int endIndex) throws SQLException{
+			List<Review> reviews = new ArrayList<>();
+			try {
+				conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+				//pstmt = conn.prepareStatement("select * from review order by review_uid desc OFFSET ? ROWS FETCH FIRST ? ROWS ONLY");
+				pstmt = conn.prepareStatement("select * from " + 
+						"(select rownum as rnum, t.* from (select * from review where member_uid = ? order by review_uid desc) t) " + 
+						"where rnum >= ? and rnum <= ?");
+				pstmt.setLong(1, member_uid);
+				pstmt.setInt(2, startIndex);
+				pstmt.setInt(3, endIndex);
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					reviews.add(createReview(rs));
+				}
+			}finally {
+				close();
+			}
+			return reviews;
+		}
 }

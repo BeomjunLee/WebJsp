@@ -14,7 +14,8 @@ public class Review {
 	 private String regdate;
 	 
 	 protected Review() {} //그냥 생성불가
-
+	 
+	//setter를 쓰지않기 위해 생성자로 set 
 	public Review(Long review_uid, Long member_uid, String writer, String category, String title, String content, String img,
 			int view_count, int recommend, String regdate) {
 		this.review_uid = review_uid;
@@ -27,6 +28,15 @@ public class Review {
 		this.view_count = view_count;
 		this.recommend = recommend;
 		this.regdate = regdate;
+	}
+	
+	//수정을 위한 생성자
+	public Review(Long review_uid, Long member_uid, String title, String content, String img) {
+		this.review_uid = review_uid;
+		this.member_uid = member_uid;
+		this.title = title;
+		this.content = content;
+		this.img = img;
 	}
 
 	public Long getReview_uid() {
