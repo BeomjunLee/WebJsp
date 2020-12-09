@@ -43,28 +43,25 @@
         <div id="event_1" style="display:block;">
         <div class="info">
         <div class="block1">
-             <h3 style=""font-size:1.2em;" align="left">&nbsp;&nbsp;<span style ="border-bottom:3px solid #ff7276;">호텔 이벤트</span></h3>
-            <img src="front/img/event/man/man1_1.jpg" alt="" x><br>
-          	 <span style="text-align:left; font-weight:bold;" align="left">&nbsp;&nbsp;#기념일 #이벤트 #야경<br></span>
-          	   
-          	 여자친구와 기념일을 맞아 특별한 날을 선물해 드리고 싶으시다면 야경이 아름다운 호텔에서
-          	  꽃과 함께 스테이크를 해주는것은 어때요?<br>
-              	  야경과 분위기가 좋은 호텔을 예약합니다.<br>
-             	  한강 쪽에 야경이 좋은 호텔이 많으니 참고하세요!<br>
+             <h3 style=""font-size:1.2em;" align="left">&nbsp;&nbsp;<span style ="border-bottom:3px solid #ff7276;">아이폰 편지</span></h3>
+            <img src="front/img/event/women/women1_1.JPG" alt="" x><br>
+          	 <span style="text-align:left; font-weight:bold;" align="left">&nbsp;&nbsp;#기념일 #이벤트 #아이폰 편지<br></span>          	   
+          		 남자친구를 위해 아이폰 편지를 만들어 보는것은 어떨까요?<br>
+          		 SNS나 웹사이트의 이미지를 출력을 합니다.<br>
            
              	  
 		</div>
 		<div class = "block1">
 			<h3 style=""font-size:1.2em;" align="left">&nbsp;&nbsp;<span style ="border-bottom:3px solid #ff7276;">#둘</span></h3>
-            <img src="front/img/event/man/man1_2.jpg" alt="" ><br>
-            <span style="text-align:left; font-weight:bold;" align="left">&nbsp;&nbsp;#꽃 #손편지<br></span>
-          		   미리 준비해둔 꽃다발과 진심이 담긴 손편지를 건네줍니다<br>
+            <img src="front/img/event/women/women1_2.JPG" alt="" ><br>
+            <span style="text-align:left; font-weight:bold;" align="left">&nbsp;&nbsp;#오려오려 #코팅<br></span>
+          		  출력한 이미지를 코팅을 한후 예쁘게 오려 줍니다.<br>
 		</div>
 		<div class = "block1">
 			<h3 style=""font-size:1.2em;" align="left">&nbsp;&nbsp;<span style ="border-bottom:3px solid #ff7276;">#셋</span></h3>
-            <img src="front/img/event/man/man1_3.jpg" alt="" ><br>
-            <span style="text-align:left; font-weight:bold;" align="left">&nbsp;&nbsp;#스테이크 #행복 #>_<<br></span>
-                                 마지막으로 여자친구와 직접 요리한 맛있는 스테이크를 먹으면서 행복한 시간을 보냅니다 
+            <img src="front/img/event/women/women1_3.png" alt="" ><br>
+            <span style="text-align:left; font-weight:bold;" align="left">&nbsp;&nbsp;#뿌듯 #완성<br></span>
+                                오려준 것을 정렬 후에 예쁘게 이어 주고 난뒤에 남자친구에게 선물해줍니다.
 		</div>
         </div>      
         </div>
@@ -72,17 +69,17 @@
         <div id="event_2" style="display:none;">
         <div class="info">
         <div class="block1">
-            <h3 style=""font-size:1.2em;" align="left">&nbsp;&nbsp;<span style ="border-bottom:3px solid #ff7276;">손편지</span></h3>
-            <img src="front/img/event/man/man2_1.jpg" alt="" >
-            <span style="text-align:left; font-weight:bold;" align="left">&nbsp;&nbsp;#기념일 #이벤트 #책편지<br></span>
-            	여자친구에게 감동을 주고 싶다면 진심을 담은 손편지를 책으로 만들어서 주는건 어떨까요?<br>
-                            여자친구를 위한 정성스러운 손 편지를 기념일까지 매일 한장씩 작성합니다.<br>
-                            작성한 손편지들을 모아서 책 형식으로 만들어 줍니다.<br>
+            <h3 style=""font-size:1.2em;" align="left">&nbsp;&nbsp;<span style ="border-bottom:3px solid #ff7276;">깜짝 도시</span></h3>
+            <img src="front/img/event/women/women2_1.PNG" alt="" >
+            <span style="text-align:left; font-weight:bold;" align="left">&nbsp;&nbsp;#기념일 #이벤트 #도시락<br></span>
+            	스트레를 받아 힘든 남자친구를 위해 할 수 있는 일이 무엇이 있을까요?
+      			사랑을 담은 도시락은 어떠세요!
+      			지친 남자친구가 집에서 돌아오면 정성스럽게 준비한 도시락을 보여줍니다.
 		</div>
 		<div class="block1">
 			<h3 style=""font-size:1.2em;" align="left">&nbsp;&nbsp;<span style ="border-bottom:3px solid #ff7276;">#둘</span></h3>
-            <img src="front/img/event/man/man2_2.jpg" alt="" ><br>
-            <span style="text-align:left; font-weight:bold;" align="left">&nbsp;&nbsp;#진심 #편집 #직접쓴편지<br></span>
+            <img src="front/img/event/women/women2_2.JPG" alt="" ><br>
+            <span style="text-align:left; font-weight:bold;" align="left">&nbsp;&nbsp;#사랑 #만남 <br></span>
                             미리 준비해둔 꽃다발과 진심이 담긴 손편지를 건네줍니다
         </div>
         </div>
@@ -91,18 +88,24 @@
         <div id="event_3" style="display: none;">
         <div class="info">
         <div class="block1">
-          <h3 style=""font-size:1.2em;" align="left">&nbsp;&nbsp;<span style ="border-bottom:3px solid #ff7276;">레스토랑</span></h3>	
-          <img src="front/img/event/man/man3_1.jpg" alt="" ><br>
-          <span style="text-align:left; font-weight:bold;" align="left">&nbsp;&nbsp;#기념일 #이벤트 #책편지<br></span> 
-         	 여자친구와 특별한 시간을 보내고 싶으면 분위기 좋은 레스토랑은 어떨까요?	
-              	특별한 날에 분위기 좋은 레스토랑을 예약합니다.<br>
+          <h3 style=""font-size:1.2em;" align="left">&nbsp;&nbsp;<span style ="border-bottom:3px solid #ff7276;">선물</span></h3>	
+          <img src="front/img/event/women/women3_1.JPG" alt="" ><br>
+          <span style="text-align:left; font-weight:bold;" align="left">&nbsp;&nbsp;#기념일 #이벤트 #선물<br></span> 
+         	내 남자친구에게는 어떤 선물이 어울릴까요?
+         	남자들은 패션 아이템이 다양하지 않기 때문에, 포인트를 줄 수 있는 시계 어떤가요? 
 		</div>
 		<div class="block1">
 		<h3 style=""font-size:1.2em;" align="left">&nbsp;&nbsp;<span style ="border-bottom:3px solid #ff7276;">#둘</span></h3>
-          <img style="width:100%; object-fit:cover;"src="front/img/event/man/man3_2.jpg" alt="" ><br>
-          <span style="text-align:left; font-weight:bold;" align="left">&nbsp;&nbsp;#선물 #음식 #웃음<br></span> 
-            	여자친구와 맛있는 음식을 함께 먹으면서 <br>
-            	여자 친구가 평소에 같고 싶어 했던 선물을 줍니다.
+          <img style="width:100%; object-fit:cover;"src="front/img/event/women/women3_2.JPG" alt="" ><br>
+          <span style="text-align:left; font-weight:bold;" align="left">&nbsp;&nbsp;#향수<br></span> 
+            	내 남자친구에서 좋은 향기가 나길 원한다면 향수를 추천해요!<br>
+        </div>
+        <div class="block1">
+		<h3 style=""font-size:1.2em;" align="left">&nbsp;&nbsp;<span style ="border-bottom:3px solid #ff7276;">#셋</span></h3>
+          <img style="width:100%; object-fit:cover;"src="front/img/event/women/women3_3.JPG" alt="" ><br>
+          <span style="text-align:left; font-weight:bold;" align="left">&nbsp;&nbsp;#커플티 <br></span> 
+            	평소에 옷을 입기 귀찮아 하는 남자친구를 위해서
+             	 커플티도 추천해요!
         </div>
         </div>
         </div>

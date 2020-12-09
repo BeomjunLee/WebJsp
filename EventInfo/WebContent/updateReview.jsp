@@ -17,24 +17,24 @@
     <div class="row">
       <form method="post" action="updateReviewOk.do" name="form" enctype="multipart/form-data" onsubmit="return check_All()">
       <input type="hidden" name="review_uid" value="<%=review_uid %>">
-        <table class="table" style="text-align: center; border: 1px solid #dddddd">
+        <table class="table" style="text-align: center; border: none">
           <thead>
             <tr>
-              <th colspan="2" style="background-color: #eeeeee; text-align: center;">리뷰 수정</th>
+              <th class ="wR_main_title" colspan="2"><span style ="font-family:'NIXGONM-Vb'; ">리뷰 수정</span></tr>
             </tr>
 			
           </thead>
 
-          <tbody>
+          <tbody style="border:none;">
             <tr>
          
-              <td><input type="text" style="width:80%; height:auto;" maxlength="100" id="review_text" placeholder="글 제목" value="<%=review.getTitle() %>" onchange="check_title()" name="title" maxlength="50" /></td>
+              <td style="border:none;"><input type="text" style="width:98%; height:15px; font-size:1.1em;" maxlength="100" id="review_text" placeholder="글 제목" onchange="check_title()" name="title" maxlength="50" /></td>
 
             </tr>
 
             <tr>
 
-              <td><textarea class="form-control" style="width:80%;height: 250px;" rows="50" placeholder="글 내용" onchange="check_write()" name="content" maxlength="2048"> <%=review.getContent()%></textarea></td>
+              <td style="border:none;"><textarea class="form-control" style="width:98%;height: 250px; font-size:1.1em;" rows="50" placeholder="글 내용" onchange="check_write()" name="content" maxlength="2048"></textarea></td>
 
             </tr>
 
@@ -42,8 +42,10 @@
 
         </table>
         <div class ="review_service" align="center">
-          <input type="file" class ="review_button" value="이미지" name="img" value="<%=review.getImg() %>" accept="img/*" ><!-- required multiple onchange="handleFiles(this.files)" -->
-          <input type="submit" class ="review_button" value="글 올리기"/>
+          <input type="file" class ="review_button1" value="이미지" name="img" value="<%=review.getImg() %>" accept="img/*" ><!-- required multiple onchange="handleFiles(this.files)" -->
+          <div style="width:50%;">
+          	<input type="submit" class ="review_button2" value="글 올리기"/>          
+          </div>
 
         </div>
       </form>

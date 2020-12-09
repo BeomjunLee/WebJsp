@@ -58,7 +58,7 @@
 <!-- 글의 회원uid값이랑 세션값이랑 같은지 확인 -->
 <%if(uid == review.getMember_uid()) {%>
   	<input class = "button1" type="button" value="수정" onclick="location.href='updateReview.do?uid=<%=review_uid%>'">
-  	<input class = "button1" type="button" value="삭제" onclick="deleteBtn()">
+  		<input class = "button1" type="button" value="삭제" onclick="deleteBtn()">
 <%} %>
   </div>
   	

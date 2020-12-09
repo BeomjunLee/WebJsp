@@ -126,6 +126,8 @@ footer{
   width:100%;
   height:130px;
   float:left;
+  background-color:#f8f8f8;
+  opeactity:0.8;
 }
 .content .first_icon{
   display:flex;
@@ -144,16 +146,15 @@ footer{
   padding-bottom:60px;
   text-align: center;
   position: relative;
-  background-color:#eeeeee;
-  opacity: 0.8;
+  background-color:white;
 }
 .sub_wrap{
   object-fit:cover;
   margin:0 auto;
   text-align: center;
   position: relative;
-  background-color: #eeeeee;
-  opacity: 0.8;
+  background-color: white;
+  opacity: 0.85;
 }
 
 .button,
@@ -213,12 +214,14 @@ footer>pre{
 .block1{
 	width:500px;
 	height:auto;
+	object-cover:fit;
 	margin-top:60px;
 	margin-bottom:60px;
 	padding-top:5px;
 	padding-bottom:20px;
 	background-color:white;
-	box-shadow:3px 3px 3px 3px #eeeeee;
+	border: 1px solid #eeeeee;
+	box-shadow:2px 1px 2px 2px #eeeeee;
 }
 .info img{
 	margin:0;
@@ -231,6 +234,6 @@ footer>pre{
   margin:0 auto;
   text-align: center;
   position: relative;
-  background-color: #eeeeee;
+  background-color: white;
  
 }

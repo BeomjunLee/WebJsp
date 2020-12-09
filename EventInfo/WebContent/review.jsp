@@ -26,13 +26,13 @@
     <div class="container">
       <div class = "row">
       	<div class = "sub_container">
-      		<span align =center style= "text-align:center; font-family: 'NIXGONM-Vb'; font-size:1.7em; font-weight:bold;" class="main_title">리뷰 게시판</span>
+      		<span style= "display:block; color:grey; font-family: 'NIXGONM-Vb'; font-size:1.8em; text-align:center;">리뷰 게시판</span>
       	</div>
 		<div style="width:100%; margin-bottom:20px;display:flex;">
-			<input class = "button1" type="button" value="전체 보기" onclick="location.href='review.do'">
-			<input class = "button1" type="button" value="남자" onclick="location.href='reviewMen.do'">
-			<input class = "button1" type="button" value="여자" onclick="location.href='reviewWomen.do'">
-			<input class = "button1" type="button" value="부모님" onclick="location.href='reviewParent.do'">
+			<div style="width:25%;"><input class = "button1" type="button" value="전체 보기" onclick="location.href='review.do'">
+			<div style="width:25%;"><input class = "button1" type="button" value="남자" onclick="location.href='reviewMen.do'">
+			<div style="width:25%;"><input class = "button1" type="button" value="여자" onclick="location.href='reviewWomen.do'">
+			<div style="width:25%;"><input class = "button1" type="button" value="부모님" onclick="location.href='reviewParent.do'">
 		</div>
 	 
          <table style ="font-family: 'IBMPlexSansKR-Regular'; font-weight:bold;" class="table-striped">
