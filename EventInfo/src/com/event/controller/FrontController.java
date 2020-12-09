@@ -148,6 +148,9 @@ public class FrontController extends HttpServlet {
 			command.excute(request, response);
 			viewPage = "updateMyPageOk.jsp";
 			break;
+		case "/event1.do":
+			viewPage = "event1.jsp";
+			break;
 		}
 		
 		// response 를 위해서 
