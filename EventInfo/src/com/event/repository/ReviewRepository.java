@@ -140,8 +140,51 @@ public class ReviewRepository {
 	}
 	
 	//update
+	public int updateViewCount(Long review_uid) throws SQLException{
+		int result = 0;
+		try {
+			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+			pstmt = conn.prepareStatement("update review set view_count = view_count + 1 where review_uid = ?");
+			pstmt.setLong(1, review_uid);
+			result = pstmt.executeUpdate();
+		}finally {
+			close();
+		}
+		return result;
+	}
+	
+	//update view_count
+		public int update(Review review) throws SQLException{
+			int result = 0;
+			try {
+				conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+				pstmt = conn.prepareStatement("update review set title = ?, content = ?, img = ?  where review_uid = ? and member_uid = ?");
+				pstmt.setString(1, review.getTitle());
+				pstmt.setString(2, review.getContent());
+				pstmt.setString(3, review.getImg());
+				pstmt.setLong(4, review.getReview_uid());
+				pstmt.setLong(5, review.getMember_uid());
+				result = pstmt.executeUpdate();
+			}finally {
+				close();
+			}
+			return result;
+		}
 	
 	//delete
+	public int delete(Long review_uid, Long member_uid) throws SQLException {
+		int result = 0;
+		try {
+			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+			pstmt = conn.prepareStatement("delete from review where review_uid = ? and member_uid = ?");
+			pstmt.setLong(1, review_uid);
+			pstmt.setLong(2, member_uid);
+			result = pstmt.executeUpdate();
+		}finally {
+			close();
+		}
+		return result;
+	}
 	
 	//select totalListCount
 	public int totalListCount() throws SQLException{

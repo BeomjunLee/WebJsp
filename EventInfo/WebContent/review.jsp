@@ -49,7 +49,7 @@
      		 <%for(Review review : reviews) {%>
                <tr>
                   <td><%=review.getRecommend() %></td>
-                  <td><a href="readReview.do?uid=<%=review.getReview_uid()%>"><%=review.getTitle() %></a></td>
+                  <td><a href="readReview.do?uid=<%=review.getReview_uid()%>&page=<%=pagination.getPage()%>"><%=review.getTitle() %></a></td>
                   <td><%=review.getWriter() %></td>
                   <td><%=review.getRegdate() %></td>
                   <td><%=review.getView_count() %></td>

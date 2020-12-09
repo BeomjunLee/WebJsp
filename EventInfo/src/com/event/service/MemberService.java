@@ -56,16 +56,19 @@ public class MemberService {
 			Member member = memberRepository.findById(id);
 			System.out.println("Member 전달성공");
 			
-			if(member == null) return 2;
-			else if(member.getId().equals(id) && passwordEncoder.matches(pw, member.getPw())) {
-				result = 1;
-				HttpSession session = request.getSession();
-				session.setAttribute("session", member.getMember_uid());
-				System.out.println("세션 생성 : " + session.getAttribute("session"));
+			HttpSession session = request.getSession();
+			
+			if(member == null) return 2; //회원이 존재하지않음
+			else if(member.getId().equals(id) && passwordEncoder.matches(pw, member.getPw())) { //아이디랑 비번이 같을경우
+					//세션이있다면 삭제
+					if(session.getAttribute("session") != null) session.removeAttribute("session");
+					//세션 생성
+					session.setAttribute("session", member.getMember_uid());
+					System.out.println("세션 생성 : " + session.getAttribute("session"));
+					result = 1;	//성공
+				}else result = 3; //비밀번호 일치 x
+			return result;
 			}
-			else result = 3;
-		return result;
-	}
 	
 	//로그아웃
 	public void logout(HttpServletRequest request){

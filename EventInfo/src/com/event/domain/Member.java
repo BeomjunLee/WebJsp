@@ -12,6 +12,7 @@ public class Member {
 	
 	protected Member() {} //그냥 생성 불가
 	
+	//setter를 쓰지않기 위해 생성자로 set 
 	public Member(Long member_uid, String id, String pw, String name, String email, String phoneNum, int age, String gender) {
 		this.member_uid = member_uid;
 		this.id = id;

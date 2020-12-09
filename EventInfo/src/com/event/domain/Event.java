@@ -12,6 +12,7 @@ public class Event {
 	
     protected Event() {}
 
+    //setter를 쓰지않기 위해 생성자로 set 
 	public Event(Long event_uid, String category, String title, String content, String img, int view_count,
 			int recommend, String regdate) {
 		super();
