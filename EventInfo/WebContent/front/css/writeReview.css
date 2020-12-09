@@ -232,19 +232,20 @@ textarea{
   font-size: 1.3em;
 }
 .review_service{
+  display:flex;
   margin-bottom: 10px;
 }
 
 .review_service input{
-  font-size: 1em;
+ /*  font-size: 1em;
   border: 1px solid grey;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 5px; */
 
 }
 .review_service input:hover{
-  color:white;
-  background-color: rgba(84, 87, 84, 0.54);
+/*   color:white;
+  background-color: rgba(84, 87, 84, 0.54); */
 }
 
 footer>pre{
@@ -258,6 +259,7 @@ footer>pre{
 	margin:0 auto;
 }
 .wR_main_title{
+	margin-top:30px;
 	font-size:1.5em;
 	width:100%;
 	height:50px;
@@ -270,4 +272,35 @@ footer>pre{
 	background-color:white;
 	margin-top:20px;
 	margin-bottom:20px;
+}
+
+.review_button1{
+	font-family: 'GmarketSansMedium';
+	width:60%;
+	border:0.5px solid #dcdcdc;
+	font-size:0.9em;
+	background-color:white;
+	color:black;
+}
+.review_button1:hover{
+	background-color:#ff7276;
+	color:white;
+}
+.review_button2{
+	font-family: 'GmarketSansMedium';
+	width:80%;
+	border-radius:10px;
+	border:0.5px solid #dcdcdc;
+	font-size:0.9em;
+	background-color:#ff7276;
+	color:white;
+}
+.review_button2:hover{
+	background-color:white;
+	color:#ff7276;	
+}
+
+
+select{
+	margin-right:15px;
 }

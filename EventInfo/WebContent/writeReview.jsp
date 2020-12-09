@@ -16,7 +16,6 @@
               <th class ="wR_main_title" colspan="2"><span style ="font-family:'NIXGONM-Vb'; ">리뷰 작성</span></tr>
 
           </thead>
-		
           <tbody style="border:none;">
             <tr>
             </tr>
@@ -35,18 +34,19 @@
           </tbody>
 
         </table>
-            <div>
-            	<div>
+
+       		<div class ="review_service" align="center">
+       			 <div style="width:60%; display:flex;">
                	    종류: <select class="menu_select" name="category">
                    <option value="men" selected>남자친구를 위한</option>
                    <option value="women">여자친구를 위한</option>
                    <option value="parents">부모님을 위한</option>
                    </select>
-                 </div>
-                 
-       			<div class ="review_service" align="center">
-       			<input type="file" class ="review_button" value="이미지" name="img" accept="img/*" ><!-- required multiple onchange="handleFiles(this.files)" -->
-         		 <input type="submit" class ="review_button" value="글 올리기"/>
+            	
+       			<input type="file" class ="review_button1" value="이미지" name="img" accept="img/*" ><!-- required multiple onchange="handleFiles(this.files)" -->
+       			</div>
+       			<div style="width:40%;">
+         			<input type="submit" class ="review_button2" value="글 올리기"/>
        			</div>
               </div>
       </form>
