@@ -1,4 +1,3 @@
-<%@page import="com.event.domain.Event"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.event.domain.Pagination"%>
 <%@page import="java.util.List"%>
