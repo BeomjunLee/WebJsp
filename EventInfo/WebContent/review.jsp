@@ -26,7 +26,7 @@
     <div class="container">
       <div class = "row">
       	<div class = "sub_container">
-      		<span style= "font-family: 'NIXGONM-Vb'; font-size:1.7em; font-weight:bold;" class="main_title">리뷰 게시판</span>
+      		<span align =center style= "text-align:center; font-family: 'NIXGONM-Vb'; font-size:1.7em; font-weight:bold;" class="main_title">리뷰 게시판</span>
       	</div>
 		<div style="width:100%; margin-bottom:20px;display:flex;">
 			<input class = "button1" type="button" value="전체 보기" onclick="">
@@ -35,8 +35,8 @@
 			<input class = "button1" type="button" value="부모님" onclick="">
 		</div>
 	 
-         <table style ="font-family: 'IBMPlexSansKR-Regular';" class="table-striped">
-            <thead>
+         <table style ="font-family: 'IBMPlexSansKR-Regular'; font-weight:bold;" class="table-striped">
+            <thead >
                <tr>
                   <th class = "table_color" style="width:10%;" >카테고리</th>
                   <th class = "table_color" style="width:45%;" >제목</th>

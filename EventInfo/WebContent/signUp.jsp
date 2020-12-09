@@ -17,8 +17,16 @@
           <li><label class="color" for="name">이메일</label><input class="sign_box" type="text" name="email" onchange="checkMail()"></li>
           <li><label class="color" for="name">전화번호</label><input class="sign_box" type="text" name="phoneNum" id="tel_input" onchange="checkTel()" placeholder=" '-'없이 적어주세요."></li>
           <li><input class ="check" type="button" onclick="openDaumPostcode()" value="주소검색"></li>
-          <li><label class="color" for="name">우편번호</label><input class="sign_box" type="text" class="signupForm" id="postcode" size="10"></li>
-          <li><label class="color" for="name"></label><input class="sign_box" type="text" id="extraAddress" name="addressB" size="20"></li>
+          <li><label class="color1" for="name">우편번호</label>
+          	<div style="display:flex; width:100%;">
+          		<div style="width:20%;margin-right:3px;">
+          			<input class="sign_box" type="text" class="signupForm" id="postcode" size="10">
+          		</div>
+          		<div style="width:80%;margin-left:3px;">	
+          			<label class="color2" for="name"></label><input class="sign_box" type="text" id="extraAddress" name="addressB" size="20">
+          		</div>
+          	</div>
+          </li>
           <li><label class="color" for="name">도로명주소</label><input class="sign_box" type="text" id="address" name="addressA" size="30"></li>
           <li><label class="color" for="name">상세주소</label><input class="sign_box" type="text" id="detailAddress" name="addressC" size="56"></li>
           <div class = "container">

@@ -39,6 +39,7 @@
 
 		
       <div class = "wrap">
+      <div class = "sub_wrap1"></div>
       <div class = "sub_wrap">
         <div id="event_1" style="display:block;">
         <div class="info">
@@ -96,6 +97,7 @@
         </div>
         </div>
        </div>
+       <div class = "sub_wrap1"></div>
        </div>
        
   </body>
