@@ -138,12 +138,13 @@ footer{
   padding:15px 70px;
 }
 .wrap{
+  display:flex;
   width:100%;
-  padding-top:30px;
-  padding-bottom:30px;
+  padding-top:20px;
+  padding-bottom:60px;
   text-align: center;
   position: relative;
-  background-color: black;
+  background-color:#eeeeee;
   opacity: 0.8;
 }
 .sub_wrap{
@@ -151,9 +152,10 @@ footer{
   margin:0 auto;
   text-align: center;
   position: relative;
-  background-color: black;
+  background-color: #eeeeee;
   opacity: 0.8;
 }
+
 .button,
 .button::after {
   -webkit-transition: all 0.3s;
@@ -211,12 +213,24 @@ footer>pre{
 .block1{
 	width:500px;
 	height:auto;
-	margin-top:10px;
-	margin-bottom:10px;
+	margin-top:60px;
+	margin-bottom:60px;
+	padding-top:5px;
+	padding-bottom:20px;
 	background-color:white;
+	box-shadow:3px 3px 3px 3px #eeeeee;
 }
 .info img{
 	margin:0;
 	padding:0;
 	width:100%;
+}
+.sub_wrap1{
+  width:5%;
+  object-fit:cover;
+  margin:0 auto;
+  text-align: center;
+  position: relative;
+  background-color: #eeeeee;
+ 
 }

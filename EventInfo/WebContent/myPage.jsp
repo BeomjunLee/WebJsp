@@ -73,7 +73,7 @@
             </thead>
             <tbody>
           <%for(Review review : reviews) {%>
-               <tr>
+               <tr style="font-weight:bold; text-align:center;">
                   <td><%=review.getCategory()%></td>
                   <td><a href="readReview.do?uid=<%=review.getReview_uid()%>&page=<%=pagination.getPage()%>"><%=review.getTitle() %></a></td>
                   <td><%=review.getWriter() %></td>

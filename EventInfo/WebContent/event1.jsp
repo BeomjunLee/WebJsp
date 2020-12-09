@@ -43,11 +43,13 @@
         <div id="event_1" style="display:block;">
         <div class="info">
         <div class="block1">
-             <h3> 호텔 이벤트 </h3><br>#기념일 #이벤트 #야경<br><br>  
-             여자친구와 기념일을 맞아 특별한 날을 선물해 드리고 싶으시다면 야경이 아름다운 호텔에서 꽃과 함께 스테이크를 해주는것은 어때요?
+             <h3 style="font-size:1.2em;"align="left">&nbsp;&nbsp;호텔 이벤트 </h3>
             <img src="front/img/event/man/man1_1.jpg" alt="" x><br>
+          	 <span align="left">#기념일 #이벤트 #야경</span><br>  
+          	   여자친구와 기념일을 맞아 특별한 날을 선물해 드리고 싶으시다면 야경이 아름다운 호텔에서 꽃과 함께 스테이크를 해주는것은 어때요?<br>
               	  야경과 분위기가 좋은 호텔을 예약합니다.<br>
              	  한강 쪽에 야경이 좋은 호텔이 많으니 참고하세요!<br>
+             	  
 		</div>
 		<div class = "block1">
             <img src="front/img/event/man/man1_2.jpg" alt="" ><br>
