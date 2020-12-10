@@ -125,10 +125,25 @@ public class FrontController extends HttpServlet {
 			command.excute(request, response);
 			viewPage = "reviewParent.jsp";
 			break;
+		case "/reviewKeyword.do":
+			command = new ReviewKeywordCommand();
+			command.excute(request, response);
+			viewPage = "reviewKeyword.jsp";
+			break;
 		case "/readReview.do":
 			command = new ReadReviewCommand();
 			command.excute(request, response);
 			viewPage = "readReview.jsp";
+			break;
+		case "/replyOk.do":
+			command = new ReplyCommand();
+			command.excute(request, response);
+			viewPage = "replyOk.jsp";
+			break;
+		case "/deleteReply.do":
+			command = new DeleteReplyCommand();
+			command.excute(request, response);
+			viewPage = "deleteReply.jsp";
 			break;
 		case "/writeReview.do":
 			viewPage = "writeReview.jsp";
@@ -171,8 +186,13 @@ public class FrontController extends HttpServlet {
 		case "/event1.do":
 			viewPage = "event1.jsp";
 			break;
+		case "/event2.do":
+			viewPage = "event2.jsp";
+			break;
+		case "/event3.do":
+			viewPage = "event3.jsp";
+			break;
 		}
-		
 		// response 를 위해서 
 		// 위에서 결정된 viewPage 에 forward 해줌
 		if(viewPage != null) {

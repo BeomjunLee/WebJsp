@@ -29,10 +29,10 @@
       		<span style= "display:block; color:grey; font-family: 'NIXGONM-Vb'; font-size:1.8em; text-align:center;">리뷰 게시판</span>
       	</div>
 		<div style="width:100%; margin-bottom:20px;display:flex;">
-			<div style="width:25%;"><input class = "button1" type="button" value="전체 보기" onclick="location.href='review.do'">
-			<div style="width:25%;"><input class = "button1" type="button" value="남자" onclick="location.href='reviewMen.do'">
-			<div style="width:25%;"><input class = "button1" type="button" value="여자" onclick="location.href='reviewWomen.do'">
-			<div style="width:25%;"><input class = "button1" type="button" value="부모님" onclick="location.href='reviewParent.do'">
+			<div style="width:25%;"><input class = "button1" type="button" value="전체 보기" onclick="location.href='review.do'"></div>
+			<div style="width:25%;"><input class = "button1" type="button" value="남자친구를 위한" onclick="location.href='reviewMen.do'"></div>
+			<div style="width:25%;"><input class = "button1" type="button" value="여자친구를 위한" onclick="location.href='reviewWomen.do'"></div>
+			<div style="width:25%;"><input class = "button1" type="button" value="부모님을 위한" onclick="location.href='reviewParent.do'"></div>
 		</div>
 	 
          <table style ="font-family: 'IBMPlexSansKR-Regular'; font-weight:bold;" class="table-striped">
@@ -48,7 +48,10 @@
             <tbody>
      		 <%for(Review review : reviews) {%>
                <tr>
-                  <td><%=review.getCategory()%></td>
+                  <td><%if(review.getCategory().equals("men"))%>남자친구를 위한
+                  <%if(review.getCategory().equals("women"))%>여자친구를 위한
+                  <%if(review.getCategory().equals("parents"))%>부모님을 위한
+                  </td>
                   <td><a href="readReview.do?uid=<%=review.getReview_uid()%>&page=<%=pagination.getPage()%>"><%=review.getTitle() %></a></td>
                   <td><%=review.getWriter() %></td>
                   <td><%=review.getRegdate() %></td>
@@ -64,7 +67,11 @@
            	 </tr> --> 
             </tbody>
          </table>
-
+         <form action="reviewKeyword.do" method="get">
+       	  	<input type="text"  name="keyword">
+       	  	<input  type="submit" value="검색">
+         </form>
+         
    <div align="center">
         <%if(pagination.getTotalListCnt() != 0){
            	if(pagination.getPage() != 1){%>

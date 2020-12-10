@@ -34,6 +34,7 @@
 			<div style="width:25%;"><input class = "button1" type="button" value="여자친구를 위한" onclick="location.href='reviewWomen.do'"></div>
 			<div style="width:25%;"><input class = "button1" type="button" value="부모님을 위한" onclick="location.href='reviewParent.do'"></div>
 		</div>
+	 
          <table style ="font-family: 'IBMPlexSansKR-Regular'; font-weight:bold;" class="table-striped">
             <thead >
                <tr>
@@ -66,29 +67,30 @@
            	 </tr> --> 
             </tbody>
          </table>
-   <form action="reviewKeyword.do" method="get">
-       	  	<input type="text"  name="keyword">
+         <form action="reviewKeyword.do" method="get">
+       	  	<input type="text" name="keyword">
        	  	<input type="submit" value="검색">
          </form>
+         
    <div align="center">
         <%if(pagination.getTotalListCnt() != 0){
            	if(pagination.getPage() != 1){%>
-                <a href="reviewMen.do?page=1">처음으로</a>
+                <a href="reviewKeyword.do?page=1">처음으로</a>
                 <%}
             if(pagination.getPage() > pagination.getPageSize()){ %>    
-            	<a href="reviewMen.do?page=<%=pagination.getPreBlock()%>">&laquo;</a>
+            	<a href="reviewKeyword.do?page=<%=pagination.getPreBlock()%>">&laquo;</a>
        		<%}
         }%>
         <%
         	for(int i=pagination.getStartPage(); i <= pagination.getEndPage(); i++) {%>
-        		<a href="reviewMen.do?page=<%=i%>"><%=i%></a>
+        		<a href="reviewKeyword.do?page=<%=i%>"><%=i%></a>
         <%} 
         	if(pagination.getTotalListCnt() != 0){
             if(pagination.getStartPage() + pagination.getBlockSize() - 1 < pagination.getTotalPageCnt()){%>
-                <a href="reviewMen.do?page=<%=pagination.getNextBlock()%>">&raquo;</a>
+                <a href="reviewKeyword.do?page=<%=pagination.getNextBlock()%>">&raquo;</a>
             <%}
          	  if(pagination.getPage() != pagination.getTotalPageCnt()){%>
-                <a href="reviewMen.do?page=<%=pagination.getTotalPageCnt()%>">마지막으로</a>
+                <a href="reviewKeyword.do?page=<%=pagination.getTotalPageCnt()%>">마지막으로</a>
             <%} 
       	}%>
     </div>

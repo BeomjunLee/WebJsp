@@ -56,7 +56,6 @@ public class ReviewRepository {
 				rs.getString("content"),
 				rs.getString("img"),
 				rs.getInt("view_count"),
-				rs.getInt("recommend"),
 				rs.getString("regdate")
 		);
 		return review;
@@ -67,7 +66,7 @@ public class ReviewRepository {
 		int result = 0;
 		try {
 			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
-			pstmt = conn.prepareStatement("insert into review values(review_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			pstmt = conn.prepareStatement("insert into review values(review_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?)");
 			pstmt.setLong(1,  review.getMember_uid());
 			pstmt.setString(2, review.getWriter());
 			pstmt.setString(3, review.getCategory());
@@ -75,8 +74,7 @@ public class ReviewRepository {
 			pstmt.setString(5, review.getContent());
 			pstmt.setString(6, review.getImg());
 			pstmt.setInt(7, review.getView_count());
-			pstmt.setInt(8, review.getRecommend());
-			pstmt.setString(9, review.getRegdate());
+			pstmt.setString(8, review.getRegdate());
 			result = pstmt.executeUpdate();
 			System.out.println(review.toString()); //¸®ºä ·Î±×
 		}finally {
@@ -111,6 +109,27 @@ public class ReviewRepository {
 					"(select rownum as rnum, t.* from (select * from review where category = ? order by review_uid desc) t) " + 
 					"where rnum >= ? and rnum <= ?");
 			pstmt.setString(1, category);
+			pstmt.setInt(2, startIndex);
+			pstmt.setInt(3, endIndex);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				reviews.add(createReview(rs));
+			}
+		}finally {
+			close();
+		}
+		return reviews;
+	}
+	
+	//select by category
+	public List<Review> findByKeyword(String keyword, int startIndex, int endIndex) throws SQLException{
+		List<Review> reviews = new ArrayList<>();
+		try {
+			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+			pstmt = conn.prepareStatement("select * from " + 
+					"(select rownum as rnum, t.* from (select * from review where title like ? order by review_uid desc) t) " + 
+					"where rnum >= ? and rnum <= ?");
+			pstmt.setString(1, keyword);
 			pstmt.setInt(2, startIndex);
 			pstmt.setInt(3, endIndex);
 			rs = pstmt.executeQuery();
@@ -223,6 +242,23 @@ public class ReviewRepository {
 		}
 		return result;
 	}
+	
+	//select totalListCount by category
+		public int totalListCountByKeyword(String keyword) throws SQLException{
+			int result = 0;
+			try {
+				conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+				pstmt = conn.prepareStatement("select count(*) from review where title like ?");
+				pstmt.setString(1, keyword);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					result = rs.getInt(1);
+				}
+			}finally {
+				close();
+			}
+			return result;
+		}
 	
 	//select totalListCount by member_uid
 	public int totalListCountByMember_uid(Long member_uid) throws SQLException{

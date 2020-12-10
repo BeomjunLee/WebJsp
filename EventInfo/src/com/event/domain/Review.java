@@ -10,14 +10,13 @@ public class Review {
 	 private String content;
 	 private String img;
 	 private int view_count;
-	 private int recommend;
 	 private String regdate;
 	 
 	 protected Review() {} //그냥 생성불가
 	 
 	//setter를 쓰지않기 위해 생성자로 set 
 	public Review(Long review_uid, Long member_uid, String writer, String category, String title, String content, String img,
-			int view_count, int recommend, String regdate) {
+			int view_count, String regdate) {
 		this.review_uid = review_uid;
 		this.member_uid = member_uid;
 		this.writer = writer;
@@ -26,7 +25,6 @@ public class Review {
 		this.content = content;
 		this.img = img;
 		this.view_count = view_count;
-		this.recommend = recommend;
 		this.regdate = regdate;
 	}
 	
@@ -67,10 +65,6 @@ public class Review {
 		return view_count;
 	}
 	
-	public int getRecommend() {
-		return recommend;
-	}
-
 	public String getRegdate() {
 		return regdate;
 	}	
@@ -81,6 +75,6 @@ public class Review {
 
 	@Override
 	public String toString() {
-		return "[리뷰글 ]" + review_uid + "|" + "|" + member_uid + "|" + writer+ "|" + category + "|" + title + "|" + content + "|" + img + "|" + view_count + "|" + recommend + "|" + regdate;
+		return "[리뷰글 ]" + review_uid + "|" + "|" + member_uid + "|" + writer+ "|" + category + "|" + title + "|" + content + "|" + img + "|" + view_count + "|"  + regdate;
 	}
 }
