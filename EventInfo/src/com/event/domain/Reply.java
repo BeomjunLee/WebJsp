@@ -11,6 +11,7 @@ public class Reply {
 	
 	protected Reply() {};
 	
+	
 	public Reply(Long reply_uid, Long review_uid, Long member_uid, Long group_id, String writer, String content, String regdate) {
 		this.reply_uid = reply_uid;
 		this.review_uid = review_uid;

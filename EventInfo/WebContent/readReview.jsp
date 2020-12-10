@@ -17,7 +17,6 @@
 
 	//전 페이징 페이지 수
 	int nowPage = Integer.parseInt(request.getParameter("page"));
-	
 	//세션 체크
 	Long uid = 0L;
 	if(session.getAttribute("session") != null){

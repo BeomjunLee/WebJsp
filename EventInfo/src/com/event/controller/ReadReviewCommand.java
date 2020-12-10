@@ -21,7 +21,6 @@ public class ReadReviewCommand implements Command{
 		Long review_uid = Long.parseLong(String.valueOf(request.getParameter("uid")));
 		//조회수 증가
 		reviewService.updateViewCount(review_uid);
-		
 		Review review = reviewService.findByUid(review_uid);
 		
 		List<Reply> replys = replyService.findAll(review_uid);
