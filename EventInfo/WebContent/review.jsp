@@ -68,8 +68,8 @@
             </tbody>
          </table>
          <form action="reviewKeyword.do" method="get">
-       	  	<input type="text"  name="keyword">
-       	  	<input  type="submit" value="검색">
+       	  	<input class ="sign_box"type="text"  name="keyword">
+       	  	<input class ="button1" type="submit" value="검색">
          </form>
          
    <div align="center">
