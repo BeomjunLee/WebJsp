@@ -74,7 +74,10 @@
             <tbody>
           <%for(Review review : reviews) {%>
                <tr style="font-weight:bold; text-align:center;">
-                  <td><%=review.getCategory()%></td>
+                  <td><%if(review.getCategory().equals("men"))%>남자친구를 위한
+                    <%if(review.getCategory().equals("women"))%>여자친구를 위한
+                 	 <%if(review.getCategory().equals("parents"))%>부모님을 위한
+                  </td>
                   <td><a href="readReview.do?uid=<%=review.getReview_uid()%>&page=<%=pagination.getPage()%>"><%=review.getTitle() %></a></td>
                   <td><%=review.getWriter() %></td>
                   <td><%=review.getRegdate() %></td>
