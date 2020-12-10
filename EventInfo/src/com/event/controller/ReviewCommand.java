@@ -22,7 +22,7 @@ public class ReviewCommand implements Command{
 		String category = request.getParameter("category");
 		System.out.println(category);
 		int totalListCnt = reviewService.totalListCount();
-		Pagination pagination = new Pagination(totalListCnt, page, 10);
+		Pagination pagination = new Pagination(totalListCnt, page, 7);
 		int startIndex = pagination.getStartIndex();
 		int endIndex = pagination.getEndIndex();
 		

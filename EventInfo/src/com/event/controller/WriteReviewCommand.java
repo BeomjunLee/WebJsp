@@ -49,7 +49,7 @@ public class WriteReviewCommand implements Command{
 		    	String fileRealName = multi.getFilesystemName("img");//저장된 파일 이름
 		    	
 		    	//review객체 값 넣기
-		    	review = new Review(review_uid, member_uid, member.getName(), category, title, content, fileRealName, 0, 0, regdate);
+		    	review = new Review(review_uid, member_uid, member.getName(), category, title, content, fileRealName, 0, regdate);
 		    }catch(Exception e){
 		        e.printStackTrace();
 		    }

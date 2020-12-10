@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="com.event.domain.Reply"%>
 <%@page import="com.event.domain.Review"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -10,6 +12,8 @@
 <%
 	//Review 객체 받기
 	Review review = (Review)request.getAttribute("review");
+	//Reply 받기
+	List<Reply> replys = (List<Reply>)request.getAttribute("replys");
 
 	//전 페이징 페이지 수
 	int nowPage = Integer.parseInt(request.getParameter("page"));
@@ -60,9 +64,21 @@
   	<input class = "button1" type="button" value="수정" onclick="location.href='updateReview.do?uid=<%=review_uid%>'">
   		<input class = "button1" type="button" value="삭제" onclick="deleteBtn()">
 <%} %>
+	<%for(Reply reply : replys){%>
+		<%=reply.getContent()%>  [<%=reply.getWriter() %>]  [<%=reply.getRegdate() %>]
+		<%if(uid == reply.getMember_uid()) {%>
+		<a href="deleteReply.do?uid=<%=review_uid %>&page=<%=nowPage %>&reply_uid=<%=reply.getReply_uid()%>">삭제</a><br>
+		<%} %>
+	<%} %>
+	<%if(session.getAttribute("session") != null) {%>
+	<form action="replyOk.do" method="post">
+	<textarea rows="5" cols="150" placeholder="댓글을 남겨주세요" name="content"></textarea>
+	<input type="hidden" name="review_uid" value="<%=review_uid %>">
+	<input type="hidden" name="page" value="<%=nowPage%>">
+	<input type="submit" value="작성">
+	</form>
+	<%} %>
   </div>
-  	
-  
 </div>
 </body>
 <script>

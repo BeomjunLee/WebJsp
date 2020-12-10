@@ -58,9 +58,8 @@ img{
 	height:auto;
 	transition: .3s;
 }
-
 img:hover{
-	transform:scale(2);
+   transform:scale(2);
 }
 
 #img_table{

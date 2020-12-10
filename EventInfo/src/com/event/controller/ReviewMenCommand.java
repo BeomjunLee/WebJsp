@@ -23,7 +23,7 @@ public class ReviewMenCommand implements Command {
 		String category = "men";
 		
 		int totalListCnt = reviewService.totalListCountByCategory(category);
-		Pagination pagination = new Pagination(totalListCnt, page, 10);
+		Pagination pagination = new Pagination(totalListCnt, page, 7);
 		int startIndex = pagination.getStartIndex();
 		int endIndex = pagination.getEndIndex();
 		
