@@ -83,6 +83,16 @@ public class ReviewService {
 		}
 	}
 	
+	//리뷰 카테고리보기
+	public List<Review> findByCategory(String category, int startIndex, int endIndex) {
+		try {
+			return reviewRepository.findByCategory(category, startIndex, endIndex);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	//전체 검색
 	public List<Review> findAll(int startIndex, int endIndex) {
 		try {
@@ -92,6 +102,7 @@ public class ReviewService {
 			return null;
 		}
 	}
+	
 	//전체 글 수
 	public int totalListCount() {
 		try {
@@ -102,6 +113,25 @@ public class ReviewService {
 		}
 	}
 	
+	//카테고리 별 글 수
+	public int totalListCountByCategory(String category) {
+		try {
+			return reviewRepository.totalListCountByCategory(category);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+	
+	//내가 쓴 글 수
+		public int totalListCountByMember_uid(Long member_uid) {
+			try {
+				return reviewRepository.totalListCountByMember_uid(member_uid);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return 0;
+			}
+		}
 	
 	//내가 쓴 글 보기
 	public List<Review> findByMemberUid(Long member_uid, int startIndex, int endIndex){

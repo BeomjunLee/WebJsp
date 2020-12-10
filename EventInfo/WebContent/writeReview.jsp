@@ -101,7 +101,7 @@
    
    function check_title(){// 타이틀 유효성 검사 구간.
       var title = form.title.value;
-      var titleRegExp = /^[a-zA-Z가-힣0-9\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"\s]{4,25}$/; 
+      var titleRegExp = /^[a-zA-Z가-힣ㄱ-ㅎ0-9\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"\s]{4,25}$/; 
       
       if(!titleRegExp.test(title)){
          alert("글 제목은 4 ~ 25글자수 로 작성하셔야 합니다.");
@@ -111,7 +111,7 @@
    
    function check_write(){//게시판 글쓰는 구간 유효성 검사.
       var write = form.content.value;
-      var writeRegExp = /^[a-zA-Z가-힣0-9\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"\s]{1,2000}$/; 
+      var writeRegExp = /^[a-zA-Z가-힣ㄱ-ㅎ0-9\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"\s]{1,2000}$/; 
       
       if(!writeRegExp.test(write)){
          alert("리뷰 내용을 적어주세요.");

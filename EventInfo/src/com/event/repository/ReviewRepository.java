@@ -207,6 +207,40 @@ public class ReviewRepository {
 		return result;
 	}
 	
+	//select totalListCount by category
+	public int totalListCountByCategory(String category) throws SQLException{
+		int result = 0;
+		try {
+			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+			pstmt = conn.prepareStatement("select count(*) from review where category = ?");
+			pstmt.setString(1, category);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+		}finally {
+			close();
+		}
+		return result;
+	}
+	
+	//select totalListCount by member_uid
+	public int totalListCountByMember_uid(Long member_uid) throws SQLException{
+		int result = 0;
+		try {
+			conn = DriverManager.getConnection(DB.URL, DB.USERID, DB.USERPW);
+			pstmt = conn.prepareStatement("select count(*) from review where member_uid = ?");
+			pstmt.setLong(1, member_uid);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+		}finally {
+			close();
+		}
+		return result;
+	}
+	
 	//select by member_uid
 		public List<Review> findByMember_uid(Long member_uid, int startIndex, int endIndex) throws SQLException{
 			List<Review> reviews = new ArrayList<>();

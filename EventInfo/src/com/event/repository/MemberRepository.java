@@ -99,6 +99,7 @@ public class MemberRepository {
 		return member;
 	}
 	
+	
 	//select by uid
 	public Member findByUid(Long member_uid) throws SQLException{
 		Member member = null;
