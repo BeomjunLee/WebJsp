@@ -2,6 +2,6 @@
 
 MVC2패턴 + JSP + Oracle
 
-<br><br>
+<br><
 ### 후기 + 동영상
 https://blog.naver.com/qjawnswkd/222175582754
